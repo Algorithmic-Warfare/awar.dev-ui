@@ -12,24 +12,20 @@ export default function InputPage() {
       <Card>
         <Card.Header>STATES</Card.Header>
         <Card.Body>
-          <div style={{ maxWidth: 320 }}>
-            <Stack gap="md">
-              <Input label="Username" placeholder="Enter username..." />
-              <Input label="Password" type="password" placeholder="Enter password..." />
-              <Input label="Error State" error="This field is required" />
-            </Stack>
-          </div>
+          <Stack gap="md" style={{ maxWidth: 320 }}>
+            <Input label="Username" placeholder="Enter username..." />
+            <Input label="Password" type="password" placeholder="Enter password..." />
+            <Input label="Error State" error="This field is required" />
+          </Stack>
         </Card.Body>
       </Card>
       <Card>
         <Card.Header>WITH PREFIX</Card.Header>
         <Card.Body>
-          <div style={{ maxWidth: 320 }}>
-            <Stack gap="md">
-              <Input label="Domain" prefix="https://" placeholder="example.com" />
-              <Input label="Amount" prefix="$" placeholder="0.00" />
-            </Stack>
-          </div>
+          <Stack gap="md" style={{ maxWidth: 320 }}>
+            <Input label="Domain" prefix="https://" placeholder="example.com" />
+            <Input label="Amount" prefix="$" placeholder="0.00" />
+          </Stack>
         </Card.Body>
       </Card>
     </ComponentPage>

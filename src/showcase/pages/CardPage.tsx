@@ -12,7 +12,7 @@ const entry = getComponentBySlug('card')!
 export default function CardPage() {
   return (
     <ComponentPage entry={entry}>
-      <div style={{ display: 'flex', gap: 16, alignItems: 'stretch' }}>
+      <Inline gap="md" style={{ alignItems: 'stretch' }}>
         <Card style={{ flex: 1 }}>
           <Card.Header>SYSTEM STATUS</Card.Header>
           <Card.Body>
@@ -38,7 +38,7 @@ export default function CardPage() {
             </Stack>
           </Card.Body>
         </Card>
-      </div>
+      </Inline>
     </ComponentPage>
   )
 }

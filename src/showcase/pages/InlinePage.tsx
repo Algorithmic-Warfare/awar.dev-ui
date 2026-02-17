@@ -3,18 +3,10 @@ import ComponentPage from '../ComponentPage'
 import { Stack } from '../../components/layout/Stack'
 import { Inline } from '../../components/layout/Inline'
 import { Text } from '../../components/primitives/Text'
+import { Badge } from '../../components/primitives/Badge'
 import { Card } from '../../components/containers/Card'
 
 const entry = getComponentBySlug('inline')!
-
-const boxStyle = {
-  padding: '8px 16px',
-  border: '1px solid var(--aw-sys-color-border-default)',
-  backgroundColor: 'var(--aw-sys-color-surface-raised)',
-  fontFamily: 'var(--aw-sys-type-font-mono)',
-  fontSize: 12,
-  color: 'var(--aw-sys-color-text-secondary)',
-}
 
 export default function InlinePage() {
   return (
@@ -27,9 +19,9 @@ export default function InlinePage() {
               <Stack key={gap} gap="xs">
                 <Text role="caption" color="muted">gap="{gap}"</Text>
                 <Inline gap={gap}>
-                  <div style={boxStyle}>A</div>
-                  <div style={boxStyle}>B</div>
-                  <div style={boxStyle}>C</div>
+                  <Badge>A</Badge>
+                  <Badge>B</Badge>
+                  <Badge>C</Badge>
                 </Inline>
               </Stack>
             ))}
@@ -44,9 +36,9 @@ export default function InlinePage() {
               <Stack key={align} gap="xs">
                 <Text role="caption" color="muted">align="{align}"</Text>
                 <Inline gap="md" align={align}>
-                  <div style={{ ...boxStyle, padding: '4px 16px' }}>Small</div>
-                  <div style={{ ...boxStyle, padding: '16px' }}>Medium</div>
-                  <div style={{ ...boxStyle, padding: '24px 16px' }}>Large</div>
+                  <Badge style={{ padding: '4px 12px' }}>Small</Badge>
+                  <Badge style={{ padding: '12px' }}>Medium</Badge>
+                  <Badge style={{ padding: '20px 12px' }}>Large</Badge>
                 </Inline>
               </Stack>
             ))}

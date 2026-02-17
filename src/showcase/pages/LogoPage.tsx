@@ -58,10 +58,12 @@ export default function LogoPage() {
               <Logo size="md" variant="mono" />
               <Text role="caption" color="muted">mono</Text>
             </Stack>
-            <Stack gap="xs" style={{ alignItems: 'center', backgroundColor: 'var(--aw-ref-color-maroon-500)', padding: 8 }}>
-              <Logo size="md" variant="inverse" />
-              <Text role="caption" style={{ color: '#fff' }}>inverse</Text>
-            </Stack>
+            <Card variant="filled" style={{ padding: 8 }}>
+              <Stack gap="xs" style={{ alignItems: 'center' }}>
+                <Logo size="md" variant="inverse" />
+                <Text role="caption" color="muted">inverse</Text>
+              </Stack>
+            </Card>
           </Inline>
         </Card.Body>
       </Card>

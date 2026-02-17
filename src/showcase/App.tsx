@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useAWARTheme } from '../hooks/useAWARTheme'
 import { useShortcut } from '../hooks/useShortcut'
+import { Divider } from '../components/primitives/Divider'
+import { Inline } from '../components/layout/Inline'
 import TokenGallery from './TokenGallery'
 import Sidebar from './Sidebar'
 import ComponentOverview from './ComponentOverview'
@@ -24,29 +26,31 @@ function NavBar({ tab }: { tab: 'components' | 'tokens' }) {
     { label: 'TOKENS', hash: '#/tokens', key: 'tokens' },
   ]
   return (
-    <nav style={{
-      display: 'flex', gap: 0,
-      fontFamily: 'var(--aw-sys-type-font-mono)',
-      fontSize: 12, letterSpacing: '0.1em',
-      borderBottom: '1px solid var(--aw-sys-color-border-default)',
-    }}>
-      {links.map(link => (
-        <a
-          key={link.key}
-          href={link.hash}
-          style={{
-            padding: '8px 16px',
-            color: tab === link.key ? 'var(--aw-sys-color-text-accent)' : 'var(--aw-sys-color-text-secondary)',
-            textDecoration: 'none',
-            borderBottom: tab === link.key ? '2px solid var(--aw-sys-color-text-accent)' : '2px solid transparent',
-            textTransform: 'uppercase',
-            fontWeight: tab === link.key ? 700 : 400,
-            transition: 'color 0.1s, border-color 0.1s',
-          }}
-        >
-          {link.label}
-        </a>
-      ))}
+    <nav>
+      <Inline style={{
+        gap: 0,
+        fontFamily: 'var(--aw-sys-type-font-mono)',
+        fontSize: 12, letterSpacing: '0.1em',
+      }}>
+        {links.map(link => (
+          <a
+            key={link.key}
+            href={link.hash}
+            style={{
+              padding: '8px 16px',
+              color: tab === link.key ? 'var(--aw-sys-color-text-accent)' : 'var(--aw-sys-color-text-secondary)',
+              textDecoration: 'none',
+              borderBottom: tab === link.key ? '2px solid var(--aw-sys-color-text-accent)' : '2px solid transparent',
+              textTransform: 'uppercase',
+              fontWeight: tab === link.key ? 700 : 400,
+              transition: 'color 0.1s, border-color 0.1s',
+            }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </Inline>
+      <Divider />
     </nav>
   )
 }

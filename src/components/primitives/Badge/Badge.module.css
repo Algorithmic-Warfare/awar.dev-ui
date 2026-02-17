@@ -20,31 +20,31 @@
 }
 
 .success {
-  color: var(--aw-sys-color-feedback-success-text);
+  color: var(--aw-sys-color-text-inverse);
   border-color: var(--aw-sys-color-feedback-success);
-  background-color: transparent;
+  background-color: var(--aw-sys-color-feedback-success);
 }
 
 .warning {
-  color: var(--aw-sys-color-feedback-warning-text);
+  color: var(--aw-sys-color-text-inverse);
   border-color: var(--aw-sys-color-feedback-warning);
-  background-color: transparent;
+  background-color: var(--aw-sys-color-feedback-warning);
 }
 
 .error {
-  color: var(--aw-sys-color-feedback-error-text);
+  color: var(--aw-sys-color-text-inverse);
   border-color: var(--aw-sys-color-feedback-error);
-  background-color: transparent;
+  background-color: var(--aw-sys-color-feedback-error);
 }
 
 .info {
-  color: var(--aw-sys-color-feedback-info-text);
+  color: var(--aw-sys-color-text-inverse);
   border-color: var(--aw-sys-color-feedback-info);
-  background-color: transparent;
+  background-color: var(--aw-sys-color-feedback-info);
 }
 
 .brand {
-  color: var(--aw-sys-color-text-brand);
-  border-color: var(--aw-sys-color-border-brand);
-  background-color: transparent;
+  color: var(--aw-sys-color-text-inverse);
+  border-color: var(--aw-sys-color-bg-brand);
+  background-color: var(--aw-sys-color-bg-brand);
 }

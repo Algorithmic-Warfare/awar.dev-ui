@@ -173,7 +173,7 @@ These 13 decisions define how the token system becomes a shippable React compone
 |---|----------|-------|
 | 13 | Styling technology | CSS custom properties as the token layer + CSS Modules for component scoping. Zero runtime, minimal tooling. |
 | 14 | Token source format | TypeScript object as source of truth → generated CSS custom properties file. Type safety in development, zero-runtime CSS at delivery. |
-| 15 | Mode switching | `data-mode` attribute on `<html>`. `prefers-color-scheme` as initial value, manual override persisted to `localStorage`. CSS-only theming, no React context needed for styling. |
+| 15 | Mode switching | `data-mode` attribute on `<html>` managed by `<AWARProvider>`. Resolution chain: localStorage → `data-mode` attr → `defaultMode` prop → `'dark'`. React context provides `{ mode, toggle, setMode }` via `useAWARTheme` hook. CSS theming is still pure CSS (`[data-mode]` selectors), but the Provider manages the state and DOM sync. |
 
 ### Component Architecture (5 decisions)
 
@@ -198,7 +198,7 @@ These 13 decisions define how the token system becomes a shippable React compone
 | # | Decision | Value |
 |---|----------|-------|
 | 24 | Component set | All four tiers + branding. Branding: Logo, Wordmark, LogoLockup. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. |
-| 25 | Package target | shadcn/ui copy-paste model. `npx awar-ui add button` copies component source into consumer's project. No runtime dependency, full code ownership. |
+| 25 | Package target | Installed dependency with Provider model (`npm install awar-ui`). Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Similar to Chakra UI, MUI, and Radix Themes. |
 
 ---
 
@@ -836,8 +836,15 @@ awar-ui/
 │   │       ├── Dropdown/
 │   │       ├── Tooltip/
 │   │       └── Popover/
+│   ├── providers/
+│   │   └── AWARProvider/
+│   │       ├── AWARProvider.tsx    # Provider component (CSS injection + theme context)
+│   │       ├── AWARProvider.types.ts
+│   │       ├── ThemeContext.ts     # Mode type, ThemeContextValue, createContext
+│   │       └── index.ts
 │   ├── hooks/
-│   │   ├── useTheme.ts            # Mode detection + toggle + localStorage
+│   │   ├── useTheme.ts            # Standalone mode detection + toggle (no context)
+│   │   ├── useAWARTheme.ts        # Context-based hook (requires AWARProvider)
 │   │   └── useShortcut.ts         # Keyboard shortcut binding (scoped/global)
 │   └── index.ts                   # Public exports
 ├── package.json
@@ -876,3 +883,52 @@ Button/
 | Elevation| 9         | 10             | — (shared)      |
 | Motion   | —         | 2              | — (shared)      |
 | **Total**| **77**    | **88**         | **28**          |
+
+### Consumer Integration
+
+Consumers wrap their app in `<AWARProvider>` — this auto-injects the token CSS and provides theme context:
+
+```tsx
+import { AWARProvider } from 'awar-ui'
+
+function App() {
+  return (
+    <AWARProvider defaultMode="dark">
+      <YourApp />
+    </AWARProvider>
+  )
+}
+```
+
+Theme state is accessed via the `useAWARTheme` hook:
+
+```tsx
+import { useAWARTheme } from 'awar-ui'
+
+function ThemeToggle() {
+  const { mode, toggle, setMode } = useAWARTheme()
+  return <button onClick={toggle}>{mode === 'dark' ? 'Light' : 'Dark'}</button>
+}
+```
+
+**`AWARProviderProps`:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultMode` | `'dark' \| 'light'` | `'dark'` | Fallback mode if no localStorage or `data-mode` attr found |
+| `children` | `ReactNode` | — | Required |
+
+**Mode resolution chain** (first match wins): `localStorage('aw-mode')` → `document.documentElement[data-mode]` → `defaultMode` prop → `'dark'`.
+
+The standalone `useTheme` hook remains available for cases where a full Provider is not desired.
+
+### Scrollbar Styling
+
+Global scrollbar styles are applied in `tokens.css` to maintain the terminal aesthetic across all scrollable elements:
+
+- **Width/height**: `1ch` (monospace-proportional)
+- **Track**: Surface background with a `1px` left border
+- **Thumb**: Interactive color (`--aw-sys-color-interactive`), hover state uses `--aw-sys-color-interactive-hover`
+- **Corner**: Surface background
+
+WebKit browsers use `::-webkit-scrollbar-*` pseudo-elements. Firefox falls back to `scrollbar-width: thin` + `scrollbar-color` via `@supports not selector(::-webkit-scrollbar)`. Scrollbar colors automatically adapt to the active mode.

@@ -126,7 +126,8 @@ export function useShortcut(
     }
 
     // Dev-mode collision warning
-    if (isGlobal && process.env.NODE_ENV !== 'production') {
+    const isDev = (globalThis as Record<string, unknown>).process && ((globalThis as Record<string, unknown>).process as Record<string, Record<string, string>>).env?.NODE_ENV !== 'production'
+    if (isGlobal && isDev) {
       if (globalCombos.has(combo)) {
         console.warn(
           `[useShortcut] Duplicate global shortcut "${combo}" registered`

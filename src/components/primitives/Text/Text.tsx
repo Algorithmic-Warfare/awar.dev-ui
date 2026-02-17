@@ -11,7 +11,7 @@ const defaultElement: Record<TextRole, string> = {
   caption: 'span',
 }
 
-const colorMap: Record<string, string> = {
+const colorMap: Record<string, string | undefined> = {
   primary: styles.colorPrimary,
   secondary: styles.colorSecondary,
   muted: styles.colorMuted,

@@ -253,3 +253,36 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Scrollbar ── */
+* {
+  &::-webkit-scrollbar {
+    background: var(--aw-sys-color-bg-surface);
+    width: 1ch;
+    height: 1ch;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--aw-sys-color-bg-surface);
+    border-inline-start: 1px solid var(--aw-sys-color-border-default);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--aw-sys-color-interactive);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--aw-sys-color-interactive-hover);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: var(--aw-sys-color-bg-surface);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--aw-sys-color-interactive) var(--aw-sys-color-bg-surface);
+  }
+}

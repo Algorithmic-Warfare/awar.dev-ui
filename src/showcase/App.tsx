@@ -80,14 +80,14 @@ export default function App() {
   const Page = slug ? pages[slug] : undefined
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
       <NavBar tab="components" />
-      <div style={{ display: 'flex', height: 'calc(100vh - 35px)' }}>
+      <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         <Sidebar activeSlug={slug} />
         <div style={{ flex: 1, overflowY: 'auto' }}>
           {Page ? <Page /> : <ComponentOverview />}
         </div>
       </div>
-    </>
+    </div>
   )
 }

@@ -1,10 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './tokens/tokens.css'
+import { AWARProvider } from './providers/AWARProvider'
 import App from './showcase/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AWARProvider>
+      <App />
+    </AWARProvider>
   </StrictMode>,
 )

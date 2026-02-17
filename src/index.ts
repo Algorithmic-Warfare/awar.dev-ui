@@ -1,9 +1,15 @@
+// Provider
+export { AWARProvider } from './providers/AWARProvider'
+export type { AWARProviderProps, ThemeContextValue, Mode } from './providers/AWARProvider'
+export { ThemeContext } from './providers/AWARProvider'
+
 // Tokens
 export { primitives } from './tokens/primitives'
 export { semanticsDark, semanticsLight } from './tokens/semantics'
 
 // Hooks
 export { useTheme } from './hooks/useTheme'
+export { useAWARTheme } from './hooks/useAWARTheme'
 export { useShortcut } from './hooks/useShortcut'
 
 // Branding

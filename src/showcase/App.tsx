@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTheme } from '../hooks/useTheme'
+import { useAWARTheme } from '../hooks/useAWARTheme'
 import { useShortcut } from '../hooks/useShortcut'
 
 // Branding
@@ -33,7 +33,7 @@ import { Tooltip } from '../components/overlays/Tooltip'
 import { Popover } from '../components/overlays/Popover'
 
 export default function App() {
-  const { mode, toggle } = useTheme()
+  const { mode, toggle } = useAWARTheme()
   const [modalOpen, setModalOpen] = useState(false)
 
   useShortcut('ctrl+t', toggle, { global: true })

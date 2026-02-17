@@ -1,0 +1,33 @@
+{
+  "name": "awar-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "generate:tokens": "tsx src/tokens/generate-css.ts",
+    "test": "npx playwright test",
+    "test:visual": "npx playwright test tests/visual",
+    "test:functional": "npx playwright test tests/functional",
+    "test:a11y": "npx playwright test tests/a11y"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "@radix-ui/react-popover": "^1.1.6"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "typescript": "^5.6.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@playwright/test": "^1.49.0",
+    "@axe-core/playwright": "^4.10.0",
+    "tsx": "^4.19.0"
+  }
+}

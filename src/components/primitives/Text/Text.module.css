@@ -1,0 +1,63 @@
+.text {
+  font-family: var(--aw-ref-font-mono);
+  margin: 0;
+}
+
+/* Roles */
+.display {
+  font-size: var(--aw-sys-type-display-size);
+  line-height: var(--aw-sys-type-display-line-height);
+  font-weight: var(--aw-sys-type-display-weight);
+  letter-spacing: var(--aw-sys-type-display-tracking);
+  text-transform: var(--aw-sys-type-display-transform);
+}
+
+.heading {
+  font-size: var(--aw-sys-type-heading-size);
+  line-height: var(--aw-sys-type-heading-line-height);
+  font-weight: var(--aw-sys-type-heading-weight);
+  letter-spacing: var(--aw-sys-type-heading-tracking);
+  text-transform: var(--aw-sys-type-heading-transform);
+}
+
+.subheading {
+  font-size: var(--aw-sys-type-subheading-size);
+  line-height: var(--aw-sys-type-subheading-line-height);
+  font-weight: var(--aw-sys-type-subheading-weight);
+  letter-spacing: var(--aw-sys-type-subheading-tracking);
+  text-transform: var(--aw-sys-type-subheading-transform);
+}
+
+.body {
+  font-size: var(--aw-sys-type-body-size);
+  line-height: var(--aw-sys-type-body-line-height);
+  font-weight: var(--aw-sys-type-body-weight);
+  letter-spacing: var(--aw-sys-type-body-tracking);
+}
+
+.label {
+  font-size: var(--aw-sys-type-label-size);
+  line-height: var(--aw-sys-type-label-line-height);
+  font-weight: var(--aw-sys-type-label-weight);
+  letter-spacing: var(--aw-sys-type-label-tracking);
+  text-transform: var(--aw-sys-type-label-transform);
+}
+
+.caption {
+  font-size: var(--aw-sys-type-caption-size);
+  line-height: var(--aw-sys-type-caption-line-height);
+  font-weight: var(--aw-sys-type-caption-weight);
+  letter-spacing: var(--aw-sys-type-caption-tracking);
+}
+
+/* Colors */
+.colorPrimary { color: var(--aw-sys-color-text-primary); }
+.colorSecondary { color: var(--aw-sys-color-text-secondary); }
+.colorMuted { color: var(--aw-sys-color-text-muted); }
+.colorInverse { color: var(--aw-sys-color-text-inverse); }
+.colorBrand { color: var(--aw-sys-color-text-brand); }
+.colorAccent { color: var(--aw-sys-color-text-accent); }
+.colorError { color: var(--aw-sys-color-feedback-error-text); }
+.colorSuccess { color: var(--aw-sys-color-feedback-success-text); }
+.colorWarning { color: var(--aw-sys-color-feedback-warning-text); }
+.colorInfo { color: var(--aw-sys-color-feedback-info-text); }

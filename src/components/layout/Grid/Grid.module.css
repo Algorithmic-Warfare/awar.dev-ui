@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+}
+
+.gapXs { gap: var(--aw-sys-space-gap-xs); }
+.gapSm { gap: var(--aw-sys-space-gap-sm); }
+.gapMd { gap: var(--aw-sys-space-gap-md); }
+.gapLg { gap: var(--aw-sys-space-gap-lg); }
+.gapXl { gap: var(--aw-sys-space-gap-xl); }

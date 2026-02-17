@@ -1,0 +1,41 @@
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--aw-sys-space-gap-xs);
+}
+
+.title {
+  font-family: var(--aw-ref-font-mono);
+  font-weight: var(--aw-ref-font-weight-bold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: var(--aw-ref-font-mono);
+  font-weight: var(--aw-ref-font-weight-regular);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--aw-sys-color-text-secondary);
+  line-height: 1;
+}
+
+/* Sizes — match logo size scale */
+.xs .title { font-size: 16px; }
+.xs .subtitle { font-size: 8px; }
+
+.sm .title { font-size: 24px; }
+.sm .subtitle { font-size: 10px; }
+
+.md .title { font-size: 32px; }
+.md .subtitle { font-size: 11px; }
+
+.lg .title { font-size: 48px; }
+.lg .subtitle { font-size: 12px; }
+
+.xl .title { font-size: 64px; }
+.xl .subtitle { font-size: 14px; }
+
+.xxl .title { font-size: 96px; }
+.xxl .subtitle { font-size: 16px; }

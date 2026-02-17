@@ -1,0 +1,255 @@
+/* AWAR Design System — Generated Token CSS */
+/* Do not edit manually. Run: npm run generate:tokens */
+
+:root {
+  --aw-ref-color-maroon-100: #F2E0E0;
+  --aw-ref-color-maroon-200: #D4A3A3;
+  --aw-ref-color-maroon-300: #B06666;
+  --aw-ref-color-maroon-400: #994444;
+  --aw-ref-color-maroon-500: #773333;
+  --aw-ref-color-maroon-600: #5C2828;
+  --aw-ref-color-maroon-700: #421D1D;
+  --aw-ref-color-maroon-800: #2E1414;
+  --aw-ref-color-maroon-900: #1A0C0C;
+  --aw-ref-color-amber-100: #FFF0D9;
+  --aw-ref-color-amber-200: #FFDCA3;
+  --aw-ref-color-amber-300: #FFC06D;
+  --aw-ref-color-amber-400: #FFB055;
+  --aw-ref-color-amber-500: #FF9944;
+  --aw-ref-color-amber-600: #E07A20;
+  --aw-ref-color-amber-700: #B85E10;
+  --aw-ref-color-amber-800: #8A4508;
+  --aw-ref-color-amber-900: #5C2D00;
+  --aw-ref-color-neutral-0: #FFFFFF;
+  --aw-ref-color-neutral-50: #FAF7F5;
+  --aw-ref-color-neutral-100: #F0EBE8;
+  --aw-ref-color-neutral-200: #DBD4D0;
+  --aw-ref-color-neutral-300: #B8AEAA;
+  --aw-ref-color-neutral-400: #958A85;
+  --aw-ref-color-neutral-500: #736661;
+  --aw-ref-color-neutral-600: #524846;
+  --aw-ref-color-neutral-700: #3A3230;
+  --aw-ref-color-neutral-800: #252020;
+  --aw-ref-color-neutral-900: #171312;
+  --aw-ref-color-neutral-950: #0D0B0A;
+  --aw-ref-color-neutral-1000: #000000;
+  --aw-ref-color-red-300: #E87070;
+  --aw-ref-color-red-500: #CC3333;
+  --aw-ref-color-green-300: #66CC88;
+  --aw-ref-color-green-500: #33AA55;
+  --aw-ref-color-yellow-300: #EEDD55;
+  --aw-ref-color-yellow-500: #CCAA00;
+  --aw-ref-color-blue-300: #77AADD;
+  --aw-ref-color-blue-500: #4488BB;
+  --aw-ref-font-mono: "Berkeley Mono", "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace;
+  --aw-ref-font-size-xs: 11px;
+  --aw-ref-font-size-sm: 12px;
+  --aw-ref-font-size-md: 14px;
+  --aw-ref-font-size-lg: 16px;
+  --aw-ref-font-size-xl: 20px;
+  --aw-ref-font-size-2xl: 24px;
+  --aw-ref-font-size-3xl: 28px;
+  --aw-ref-font-weight-regular: 400;
+  --aw-ref-font-weight-medium: 500;
+  --aw-ref-font-weight-bold: 700;
+  --aw-ref-lineHeight-xs: 16px;
+  --aw-ref-lineHeight-sm: 16px;
+  --aw-ref-lineHeight-md: 20px;
+  --aw-ref-lineHeight-lg: 24px;
+  --aw-ref-lineHeight-xl: 28px;
+  --aw-ref-lineHeight-2xl: 32px;
+  --aw-ref-lineHeight-3xl: 36px;
+  --aw-ref-letterSpacing-normal: 0em;
+  --aw-ref-letterSpacing-wide: 0.05em;
+  --aw-ref-letterSpacing-wider: 0.1em;
+  --aw-ref-textTransform-none: none;
+  --aw-ref-textTransform-uppercase: uppercase;
+  --aw-ref-space-0: 0px;
+  --aw-ref-space-1: 2px;
+  --aw-ref-space-2: 4px;
+  --aw-ref-space-3: 8px;
+  --aw-ref-space-4: 12px;
+  --aw-ref-space-5: 16px;
+  --aw-ref-space-6: 24px;
+  --aw-ref-space-7: 32px;
+  --aw-ref-space-8: 48px;
+  --aw-ref-space-9: 64px;
+  --aw-ref-space-10: 96px;
+  --aw-ref-radius-none: 0px;
+  --aw-ref-border-width-thin: 1px;
+  --aw-ref-border-width-medium: 2px;
+  --aw-ref-border-width-thick: 4px;
+  --aw-ref-border-style-solid: solid;
+  --aw-ref-border-style-dashed: dashed;
+  --aw-ref-shadow-none: none;
+  --aw-ref-z-base: 0;
+  --aw-ref-z-raised: 10;
+  --aw-ref-z-dropdown: 100;
+  --aw-ref-z-sticky: 200;
+  --aw-ref-z-overlay: 300;
+  --aw-ref-z-modal: 400;
+  --aw-ref-opacity-disabled: 0.38;
+  --aw-ref-opacity-hover: 0.08;
+  --aw-ref-opacity-pressed: 0.16;
+  --aw-ref-opacity-overlay: 0.60;
+
+  /* ── Mode-agnostic system tokens ── */
+  --aw-sys-type-display-size: var(--aw-ref-font-size-3xl);
+  --aw-sys-type-display-line-height: var(--aw-ref-line-height-3xl);
+  --aw-sys-type-display-weight: var(--aw-ref-font-weight-bold);
+  --aw-sys-type-display-tracking: var(--aw-ref-letter-spacing-normal);
+  --aw-sys-type-display-transform: var(--aw-ref-text-transform-uppercase);
+  --aw-sys-type-heading-size: var(--aw-ref-font-size-lg);
+  --aw-sys-type-heading-line-height: var(--aw-ref-line-height-lg);
+  --aw-sys-type-heading-weight: var(--aw-ref-font-weight-bold);
+  --aw-sys-type-heading-tracking: var(--aw-ref-letter-spacing-wide);
+  --aw-sys-type-heading-transform: var(--aw-ref-text-transform-uppercase);
+  --aw-sys-type-subheading-size: var(--aw-ref-font-size-md);
+  --aw-sys-type-subheading-line-height: var(--aw-ref-line-height-md);
+  --aw-sys-type-subheading-weight: var(--aw-ref-font-weight-medium);
+  --aw-sys-type-subheading-tracking: var(--aw-ref-letter-spacing-wide);
+  --aw-sys-type-subheading-transform: var(--aw-ref-text-transform-uppercase);
+  --aw-sys-type-body-size: var(--aw-ref-font-size-md);
+  --aw-sys-type-body-line-height: var(--aw-ref-line-height-md);
+  --aw-sys-type-body-weight: var(--aw-ref-font-weight-regular);
+  --aw-sys-type-body-tracking: var(--aw-ref-letter-spacing-normal);
+  --aw-sys-type-label-size: var(--aw-ref-font-size-sm);
+  --aw-sys-type-label-line-height: var(--aw-ref-line-height-sm);
+  --aw-sys-type-label-weight: var(--aw-ref-font-weight-medium);
+  --aw-sys-type-label-tracking: var(--aw-ref-letter-spacing-wider);
+  --aw-sys-type-label-transform: var(--aw-ref-text-transform-uppercase);
+  --aw-sys-type-caption-size: var(--aw-ref-font-size-xs);
+  --aw-sys-type-caption-line-height: var(--aw-ref-line-height-xs);
+  --aw-sys-type-caption-weight: var(--aw-ref-font-weight-regular);
+  --aw-sys-type-caption-tracking: var(--aw-ref-letter-spacing-normal);
+  --aw-sys-space-inset-xs: var(--aw-ref-space-1);
+  --aw-sys-space-inset-sm: var(--aw-ref-space-2);
+  --aw-sys-space-inset-md: var(--aw-ref-space-3);
+  --aw-sys-space-inset-lg: var(--aw-ref-space-5);
+  --aw-sys-space-inset-xl: var(--aw-ref-space-6);
+  --aw-sys-space-gap-xs: var(--aw-ref-space-1);
+  --aw-sys-space-gap-sm: var(--aw-ref-space-2);
+  --aw-sys-space-gap-md: var(--aw-ref-space-3);
+  --aw-sys-space-gap-lg: var(--aw-ref-space-5);
+  --aw-sys-space-gap-xl: var(--aw-ref-space-6);
+  --aw-sys-space-layout-xs: var(--aw-ref-space-5);
+  --aw-sys-space-layout-sm: var(--aw-ref-space-6);
+  --aw-sys-space-layout-md: var(--aw-ref-space-7);
+  --aw-sys-space-layout-lg: var(--aw-ref-space-8);
+  --aw-sys-space-layout-xl: var(--aw-ref-space-9);
+  --aw-sys-size-compact: 24px;
+  --aw-sys-size-default: 28px;
+  --aw-sys-size-comfortable: 36px;
+  --aw-sys-size-large: 44px;
+  --aw-sys-size-icon-sm: 12px;
+  --aw-sys-size-icon-md: 16px;
+  --aw-sys-size-icon-lg: 20px;
+  --aw-sys-shape-radius: var(--aw-ref-radius-none);
+  --aw-sys-border-default: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-default);
+  --aw-sys-border-strong: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-strong);
+  --aw-sys-border-interactive: var(--aw-ref-border-width-medium) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-interactive);
+  --aw-sys-border-dashed: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-dashed) var(--aw-sys-color-border-default);
+  --aw-sys-elevation-flat: var(--aw-sys-color-bg-surface);
+  --aw-sys-elevation-raised: var(--aw-sys-color-bg-surface-raised);
+  --aw-sys-elevation-overlay: var(--aw-sys-color-bg-surface-overlay);
+  --aw-sys-z-default: var(--aw-ref-z-base);
+  --aw-sys-z-dropdown: var(--aw-ref-z-dropdown);
+  --aw-sys-z-sticky: var(--aw-ref-z-sticky);
+  --aw-sys-z-overlay: var(--aw-ref-z-overlay);
+  --aw-sys-z-modal: var(--aw-ref-z-modal);
+  --aw-sys-state-disabled: var(--aw-ref-opacity-disabled);
+  --aw-sys-state-hover: var(--aw-ref-opacity-hover);
+  --aw-sys-state-pressed: var(--aw-ref-opacity-pressed);
+  --aw-sys-state-scrim: var(--aw-ref-opacity-overlay);
+  --aw-sys-transition-fast: 100ms ease-out;
+  --aw-sys-transition-none: 0ms;
+}
+
+[data-mode="dark"] {
+  --aw-sys-color-bg-root: var(--aw-ref-color-neutral-950);
+  --aw-sys-color-bg-surface: var(--aw-ref-color-neutral-900);
+  --aw-sys-color-bg-surface-raised: var(--aw-ref-color-neutral-800);
+  --aw-sys-color-bg-surface-overlay: var(--aw-ref-color-neutral-700);
+  --aw-sys-color-bg-brand: var(--aw-ref-color-maroon-500);
+  --aw-sys-color-bg-brand-subtle: var(--aw-ref-color-maroon-800);
+  --aw-sys-color-text-primary: var(--aw-ref-color-neutral-100);
+  --aw-sys-color-text-secondary: var(--aw-ref-color-neutral-400);
+  --aw-sys-color-text-muted: var(--aw-ref-color-neutral-500);
+  --aw-sys-color-text-inverse: var(--aw-ref-color-neutral-950);
+  --aw-sys-color-text-brand: var(--aw-ref-color-maroon-300);
+  --aw-sys-color-text-accent: var(--aw-ref-color-amber-500);
+  --aw-sys-color-interactive: var(--aw-ref-color-amber-500);
+  --aw-sys-color-interactive-hover: var(--aw-ref-color-amber-400);
+  --aw-sys-color-interactive-active: var(--aw-ref-color-amber-600);
+  --aw-sys-color-interactive-muted: var(--aw-ref-color-amber-800);
+  --aw-sys-color-border-default: var(--aw-ref-color-neutral-700);
+  --aw-sys-color-border-strong: var(--aw-ref-color-neutral-500);
+  --aw-sys-color-border-interactive: var(--aw-ref-color-amber-500);
+  --aw-sys-color-border-brand: var(--aw-ref-color-maroon-400);
+  --aw-sys-color-feedback-error: var(--aw-ref-color-red-500);
+  --aw-sys-color-feedback-error-text: var(--aw-ref-color-red-300);
+  --aw-sys-color-feedback-success: var(--aw-ref-color-green-500);
+  --aw-sys-color-feedback-success-text: var(--aw-ref-color-green-300);
+  --aw-sys-color-feedback-warning: var(--aw-ref-color-yellow-500);
+  --aw-sys-color-feedback-warning-text: var(--aw-ref-color-yellow-300);
+  --aw-sys-color-feedback-info: var(--aw-ref-color-blue-500);
+  --aw-sys-color-feedback-info-text: var(--aw-ref-color-blue-300);
+  --aw-sys-color-selection-bg: var(--aw-ref-color-amber-900);
+  --aw-sys-color-focus-ring: var(--aw-ref-color-amber-500);
+}
+
+[data-mode="light"] {
+  --aw-sys-color-bg-root: var(--aw-ref-color-neutral-50);
+  --aw-sys-color-bg-surface: var(--aw-ref-color-neutral-0);
+  --aw-sys-color-bg-surface-raised: var(--aw-ref-color-neutral-100);
+  --aw-sys-color-bg-surface-overlay: var(--aw-ref-color-neutral-200);
+  --aw-sys-color-bg-brand: var(--aw-ref-color-maroon-500);
+  --aw-sys-color-bg-brand-subtle: var(--aw-ref-color-maroon-100);
+  --aw-sys-color-text-primary: var(--aw-ref-color-neutral-900);
+  --aw-sys-color-text-secondary: var(--aw-ref-color-neutral-600);
+  --aw-sys-color-text-muted: var(--aw-ref-color-neutral-400);
+  --aw-sys-color-text-inverse: var(--aw-ref-color-neutral-50);
+  --aw-sys-color-text-brand: var(--aw-ref-color-maroon-600);
+  --aw-sys-color-text-accent: var(--aw-ref-color-amber-700);
+  --aw-sys-color-interactive: var(--aw-ref-color-amber-700);
+  --aw-sys-color-interactive-hover: var(--aw-ref-color-amber-600);
+  --aw-sys-color-interactive-active: var(--aw-ref-color-amber-800);
+  --aw-sys-color-interactive-muted: var(--aw-ref-color-amber-100);
+  --aw-sys-color-border-default: var(--aw-ref-color-neutral-200);
+  --aw-sys-color-border-strong: var(--aw-ref-color-neutral-400);
+  --aw-sys-color-border-interactive: var(--aw-ref-color-amber-700);
+  --aw-sys-color-border-brand: var(--aw-ref-color-maroon-400);
+  --aw-sys-color-feedback-error: var(--aw-ref-color-red-500);
+  --aw-sys-color-feedback-error-text: var(--aw-ref-color-red-500);
+  --aw-sys-color-feedback-success: var(--aw-ref-color-green-500);
+  --aw-sys-color-feedback-success-text: var(--aw-ref-color-green-500);
+  --aw-sys-color-feedback-warning: var(--aw-ref-color-yellow-500);
+  --aw-sys-color-feedback-warning-text: var(--aw-ref-color-yellow-500);
+  --aw-sys-color-feedback-info: var(--aw-ref-color-blue-500);
+  --aw-sys-color-feedback-info-text: var(--aw-ref-color-blue-500);
+  --aw-sys-color-selection-bg: var(--aw-ref-color-amber-100);
+  --aw-sys-color-focus-ring: var(--aw-ref-color-amber-600);
+}
+
+/* ── Global Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  border-radius: 0;
+}
+
+body {
+  font-family: var(--aw-ref-font-mono);
+  font-size: var(--aw-ref-font-size-md);
+  line-height: var(--aw-ref-line-height-md);
+  background-color: var(--aw-sys-color-bg-root);
+  color: var(--aw-sys-color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

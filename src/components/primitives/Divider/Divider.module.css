@@ -1,0 +1,13 @@
+.divider {
+  border: none;
+  margin: 0;
+  width: 100%;
+}
+
+.thin {
+  border-top: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-default);
+}
+
+.thick {
+  border-top: var(--aw-ref-border-width-medium) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-strong);
+}

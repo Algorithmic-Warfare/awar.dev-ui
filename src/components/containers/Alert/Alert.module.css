@@ -1,0 +1,36 @@
+.alert {
+  --aw-alert-accent: var(--aw-sys-color-feedback-info);
+  --aw-alert-text: var(--aw-sys-color-feedback-info-text);
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--aw-sys-space-gap-md);
+  padding: var(--aw-sys-space-inset-md);
+  background-color: var(--aw-sys-elevation-flat);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-default);
+  border-left: var(--aw-ref-border-width-thick) var(--aw-ref-border-style-solid) var(--aw-alert-accent);
+  border-radius: 0;
+  color: var(--aw-alert-text);
+  font-size: var(--aw-sys-type-body-size);
+  line-height: var(--aw-sys-type-body-line-height);
+}
+
+.error {
+  --aw-alert-accent: var(--aw-sys-color-feedback-error);
+  --aw-alert-text: var(--aw-sys-color-feedback-error-text);
+}
+
+.warning {
+  --aw-alert-accent: var(--aw-sys-color-feedback-warning);
+  --aw-alert-text: var(--aw-sys-color-feedback-warning-text);
+}
+
+.success {
+  --aw-alert-accent: var(--aw-sys-color-feedback-success);
+  --aw-alert-text: var(--aw-sys-color-feedback-success-text);
+}
+
+.info {
+  --aw-alert-accent: var(--aw-sys-color-feedback-info);
+  --aw-alert-text: var(--aw-sys-color-feedback-info-text);
+}

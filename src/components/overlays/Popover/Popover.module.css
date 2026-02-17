@@ -1,0 +1,13 @@
+.content {
+  background-color: var(--aw-sys-elevation-overlay);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-strong);
+  border-radius: 0;
+  padding: var(--aw-sys-space-inset-md);
+  min-width: 200px;
+  max-width: 400px;
+  z-index: var(--aw-sys-z-overlay);
+}
+
+.content:focus {
+  outline: none;
+}

@@ -1,0 +1,34 @@
+.card {
+  --aw-card-bg: var(--aw-sys-elevation-flat);
+  --aw-card-border: var(--aw-sys-color-border-default);
+
+  background-color: var(--aw-card-bg);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
+  border-radius: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--aw-sys-space-inset-sm) var(--aw-sys-space-inset-md);
+  background-color: var(--aw-sys-color-bg-surface-raised);
+  border-bottom: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
+  font-size: var(--aw-sys-type-label-size);
+  font-weight: var(--aw-sys-type-label-weight);
+  letter-spacing: var(--aw-sys-type-label-tracking);
+  text-transform: var(--aw-sys-type-label-transform);
+  line-height: var(--aw-sys-type-label-line-height);
+}
+
+.body {
+  padding: var(--aw-sys-space-inset-md);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--aw-sys-space-gap-md);
+  padding: var(--aw-sys-space-inset-sm) var(--aw-sys-space-inset-md);
+  border-top: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
+}

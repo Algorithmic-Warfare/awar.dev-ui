@@ -1,0 +1,50 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--aw-sys-space-inset-sm);
+  height: var(--aw-sys-size-compact);
+  font-family: var(--aw-ref-font-mono);
+  font-size: var(--aw-sys-type-label-size);
+  font-weight: var(--aw-sys-type-label-weight);
+  letter-spacing: var(--aw-sys-type-label-tracking);
+  text-transform: var(--aw-sys-type-label-transform);
+  line-height: var(--aw-sys-type-label-line-height);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid);
+  white-space: nowrap;
+}
+
+.default {
+  color: var(--aw-sys-color-text-secondary);
+  border-color: var(--aw-sys-color-border-default);
+  background-color: transparent;
+}
+
+.success {
+  color: var(--aw-sys-color-feedback-success-text);
+  border-color: var(--aw-sys-color-feedback-success);
+  background-color: transparent;
+}
+
+.warning {
+  color: var(--aw-sys-color-feedback-warning-text);
+  border-color: var(--aw-sys-color-feedback-warning);
+  background-color: transparent;
+}
+
+.error {
+  color: var(--aw-sys-color-feedback-error-text);
+  border-color: var(--aw-sys-color-feedback-error);
+  background-color: transparent;
+}
+
+.info {
+  color: var(--aw-sys-color-feedback-info-text);
+  border-color: var(--aw-sys-color-feedback-info);
+  background-color: transparent;
+}
+
+.brand {
+  color: var(--aw-sys-color-text-brand);
+  border-color: var(--aw-sys-color-border-brand);
+  background-color: transparent;
+}

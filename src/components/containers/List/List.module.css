@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--aw-sys-space-gap-sm);
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--aw-sys-space-gap-md);
+  font-size: var(--aw-sys-type-body-size);
+  line-height: var(--aw-sys-type-body-line-height);
+}
+
+.bullet {
+  flex-shrink: 0;
+  color: var(--aw-sys-color-text-muted);
+}

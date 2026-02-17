@@ -1,0 +1,22 @@
+.logo {
+  --aw-logo-color: var(--aw-sys-color-text-primary);
+
+  display: inline-block;
+  flex-shrink: 0;
+  color: var(--aw-logo-color);
+}
+
+/* Sizes */
+.xs { width: 16px; height: 16px; }
+.sm { width: 24px; height: 24px; }
+.md { width: 32px; height: 32px; }
+.lg { width: 48px; height: 48px; }
+.xl { width: 64px; height: 64px; }
+.xxl { width: 96px; height: 96px; }
+
+/* Variants */
+.default { --aw-logo-color: var(--aw-sys-color-text-primary); }
+.brand { --aw-logo-color: var(--aw-ref-color-neutral-0); }
+.accent { --aw-logo-color: var(--aw-ref-color-amber-500); }
+.mono { --aw-logo-color: var(--aw-ref-color-neutral-400); }
+.inverse { --aw-logo-color: var(--aw-sys-color-text-inverse); }

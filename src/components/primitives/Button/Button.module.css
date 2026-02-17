@@ -1,0 +1,87 @@
+.button {
+  --aw-button-bg: var(--aw-sys-color-interactive);
+  --aw-button-color: var(--aw-sys-color-text-inverse);
+  --aw-button-border: var(--aw-sys-color-interactive);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--aw-sys-space-gap-sm);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-button-border);
+  background-color: var(--aw-button-bg);
+  color: var(--aw-button-color);
+  font-family: var(--aw-ref-font-mono);
+  font-size: var(--aw-sys-type-label-size);
+  font-weight: var(--aw-sys-type-label-weight);
+  letter-spacing: var(--aw-sys-type-label-tracking);
+  text-transform: var(--aw-sys-type-label-transform);
+  line-height: var(--aw-sys-type-label-line-height);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 100ms ease-out, border-color 100ms ease-out;
+  white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+  --aw-button-bg: var(--aw-sys-color-interactive-hover);
+  --aw-button-border: var(--aw-sys-color-interactive-hover);
+}
+
+.button:active:not(:disabled) {
+  --aw-button-bg: var(--aw-sys-color-interactive-active);
+  --aw-button-border: var(--aw-sys-color-interactive-active);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--aw-sys-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: var(--aw-sys-state-disabled);
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.compact { height: var(--aw-sys-size-compact); padding: 0 var(--aw-sys-space-inset-sm); }
+.default { height: var(--aw-sys-size-default); padding: 0 var(--aw-sys-space-inset-md); }
+.comfortable { height: var(--aw-sys-size-comfortable); padding: 0 var(--aw-sys-space-inset-lg); }
+.large { height: var(--aw-sys-size-large); padding: 0 var(--aw-sys-space-inset-xl); }
+
+/* Variants */
+.primary {
+  --aw-button-bg: var(--aw-sys-color-interactive);
+  --aw-button-color: var(--aw-sys-color-text-inverse);
+  --aw-button-border: var(--aw-sys-color-interactive);
+}
+
+.secondary {
+  --aw-button-bg: transparent;
+  --aw-button-color: var(--aw-sys-color-text-primary);
+  --aw-button-border: var(--aw-sys-color-border-strong);
+}
+.secondary:hover:not(:disabled) {
+  --aw-button-bg: var(--aw-sys-color-bg-surface-raised);
+  --aw-button-border: var(--aw-sys-color-border-interactive);
+}
+
+.danger {
+  --aw-button-bg: var(--aw-sys-color-feedback-error);
+  --aw-button-color: var(--aw-sys-color-text-inverse);
+  --aw-button-border: var(--aw-sys-color-feedback-error);
+}
+.danger:hover:not(:disabled) {
+  --aw-button-bg: var(--aw-ref-color-red-300);
+  --aw-button-border: var(--aw-ref-color-red-300);
+}
+
+.ghost {
+  --aw-button-bg: transparent;
+  --aw-button-color: var(--aw-sys-color-text-secondary);
+  --aw-button-border: transparent;
+}
+.ghost:hover:not(:disabled) {
+  --aw-button-bg: var(--aw-sys-color-bg-surface-raised);
+  --aw-button-border: transparent;
+  --aw-button-color: var(--aw-sys-color-text-primary);
+}

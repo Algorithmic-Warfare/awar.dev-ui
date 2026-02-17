@@ -1,0 +1,12 @@
+.content {
+  background-color: var(--aw-sys-elevation-overlay);
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-sys-color-border-strong);
+  border-radius: 0;
+  padding: var(--aw-sys-space-inset-xs) var(--aw-sys-space-inset-sm);
+  font-family: var(--aw-ref-font-mono);
+  font-size: var(--aw-sys-type-caption-size);
+  line-height: var(--aw-sys-type-caption-line-height);
+  color: var(--aw-sys-color-text-primary);
+  z-index: var(--aw-sys-z-overlay);
+  white-space: nowrap;
+}

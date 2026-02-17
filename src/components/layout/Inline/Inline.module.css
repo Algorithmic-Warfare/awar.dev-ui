@@ -1,0 +1,18 @@
+.inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wrap { flex-wrap: wrap; }
+
+.alignStart { align-items: flex-start; }
+.alignCenter { align-items: center; }
+.alignEnd { align-items: flex-end; }
+.alignBaseline { align-items: baseline; }
+
+.gapXs { gap: var(--aw-sys-space-gap-xs); }
+.gapSm { gap: var(--aw-sys-space-gap-sm); }
+.gapMd { gap: var(--aw-sys-space-gap-md); }
+.gapLg { gap: var(--aw-sys-space-gap-lg); }
+.gapXl { gap: var(--aw-sys-space-gap-xl); }

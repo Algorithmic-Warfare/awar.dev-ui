@@ -1,0 +1,15 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+}
+
+.horizontal {
+  flex-direction: row;
+  gap: var(--aw-sys-space-gap-lg);
+}
+
+.stacked {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--aw-sys-space-gap-md);
+}

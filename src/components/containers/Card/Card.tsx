@@ -3,8 +3,8 @@ import type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps } from 
 import styles from './Card.module.css'
 
 const CardRoot = forwardRef<HTMLDivElement, CardProps>(
-  ({ className, ...props }, ref) => {
-    const classes = [styles.card, className].filter(Boolean).join(' ')
+  ({ className, variant = 'default', ...props }, ref) => {
+    const classes = [styles.card, styles[variant], className].filter(Boolean).join(' ')
     return <div ref={ref} className={classes} {...props} />
   }
 )

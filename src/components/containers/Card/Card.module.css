@@ -12,8 +12,6 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--aw-sys-space-inset-sm) var(--aw-sys-space-inset-md);
-  background-color: var(--aw-sys-color-bg-surface-raised);
-  border-bottom: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
   font-size: var(--aw-sys-type-label-size);
   font-weight: var(--aw-sys-type-label-weight);
   letter-spacing: var(--aw-sys-type-label-tracking);
@@ -30,5 +28,10 @@
   align-items: center;
   gap: var(--aw-sys-space-gap-md);
   padding: var(--aw-sys-space-inset-sm) var(--aw-sys-space-inset-md);
-  border-top: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
+}
+
+.filled {
+  --aw-card-bg: var(--aw-sys-color-bg-brand);
+  --aw-card-border: var(--aw-sys-color-border-brand);
+  color: var(--aw-ref-color-neutral-100);
 }

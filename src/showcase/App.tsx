@@ -204,22 +204,33 @@ function ComponentShowcase() {
         {/* ── Card ── */}
         <Stack gap="md">
           <Text role="heading">Card</Text>
-          <Card>
-            <Card.Header>SYSTEM STATUS</Card.Header>
-            <Card.Body>
-              <Stack gap="sm">
-                <Text role="body">All systems operational.</Text>
-                <Inline gap="sm">
-                  <Badge variant="success">ONLINE</Badge>
-                  <Text role="caption" color="muted">Last checked: 00:00:00</Text>
-                </Inline>
-              </Stack>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="ghost" size="compact">Refresh</Button>
-              <Button variant="ghost" size="compact">Details</Button>
-            </Card.Footer>
-          </Card>
+          <Inline gap="md" align="stretch">
+            <Card style={{ flex: 1 }}>
+              <Card.Header>SYSTEM STATUS</Card.Header>
+              <Card.Body>
+                <Stack gap="sm">
+                  <Text role="body">All systems operational.</Text>
+                  <Inline gap="sm">
+                    <Badge variant="success">ONLINE</Badge>
+                    <Text role="caption" color="muted">Last checked: 00:00:00</Text>
+                  </Inline>
+                </Stack>
+              </Card.Body>
+              <Card.Footer>
+                <Button variant="ghost" size="compact">Refresh</Button>
+                <Button variant="ghost" size="compact">Details</Button>
+              </Card.Footer>
+            </Card>
+            <Card variant="filled" style={{ flex: 1 }}>
+              <Card.Header>BRAND IDENTITY</Card.Header>
+              <Card.Body>
+                <Stack gap="sm">
+                  <Text role="body">Algorithmic Warfare</Text>
+                  <Text role="caption">Terminal-inspired component library</Text>
+                </Stack>
+              </Card.Body>
+            </Card>
+          </Inline>
         </Stack>
 
         <Divider />

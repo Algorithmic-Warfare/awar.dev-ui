@@ -9,8 +9,8 @@ const ref = {
     Object.entries(primitives.font.size).map(([k, v]) => [k, parseInt(v)])
   ) as Record<keyof typeof primitives.font.size, number>,
   lineHeight: Object.fromEntries(
-    Object.entries(primitives.lineHeight).map(([k, v]) => [k, parseInt(v)])
-  ) as Record<keyof typeof primitives.lineHeight, number>,
+    Object.entries(primitives['line-height']).map(([k, v]) => [k, parseInt(v)])
+  ) as Record<keyof typeof primitives['line-height'], number>,
   space: Object.values(primitives.space).map(v => parseInt(v)),
 }
 

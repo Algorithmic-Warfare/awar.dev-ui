@@ -17,6 +17,7 @@
   letter-spacing: var(--aw-sys-type-label-tracking);
   text-transform: var(--aw-sys-type-label-transform);
   line-height: var(--aw-sys-type-label-line-height);
+  border-bottom: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-card-border);
 }
 
 .body {
@@ -33,5 +34,5 @@
 .filled {
   --aw-card-bg: var(--aw-sys-color-bg-brand);
   --aw-card-border: var(--aw-sys-color-border-brand);
-  color: var(--aw-ref-color-neutral-100);
+  color: var(--aw-sys-color-text-on-brand);
 }

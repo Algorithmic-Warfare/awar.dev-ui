@@ -52,18 +52,18 @@
   --aw-ref-font-weight-regular: 400;
   --aw-ref-font-weight-medium: 500;
   --aw-ref-font-weight-bold: 700;
-  --aw-ref-lineHeight-xs: 16px;
-  --aw-ref-lineHeight-sm: 16px;
-  --aw-ref-lineHeight-md: 20px;
-  --aw-ref-lineHeight-lg: 24px;
-  --aw-ref-lineHeight-xl: 28px;
-  --aw-ref-lineHeight-2xl: 32px;
-  --aw-ref-lineHeight-3xl: 36px;
-  --aw-ref-letterSpacing-normal: 0em;
-  --aw-ref-letterSpacing-wide: 0.05em;
-  --aw-ref-letterSpacing-wider: 0.1em;
-  --aw-ref-textTransform-none: none;
-  --aw-ref-textTransform-uppercase: uppercase;
+  --aw-ref-line-height-xs: 16px;
+  --aw-ref-line-height-sm: 16px;
+  --aw-ref-line-height-md: 20px;
+  --aw-ref-line-height-lg: 24px;
+  --aw-ref-line-height-xl: 28px;
+  --aw-ref-line-height-2xl: 32px;
+  --aw-ref-line-height-3xl: 36px;
+  --aw-ref-letter-spacing-normal: 0em;
+  --aw-ref-letter-spacing-wide: 0.05em;
+  --aw-ref-letter-spacing-wider: 0.1em;
+  --aw-ref-text-transform-none: none;
+  --aw-ref-text-transform-uppercase: uppercase;
   --aw-ref-space-0: 0px;
   --aw-ref-space-1: 2px;
   --aw-ref-space-2: 4px;
@@ -92,8 +92,6 @@
   --aw-ref-opacity-hover: 0.08;
   --aw-ref-opacity-pressed: 0.16;
   --aw-ref-opacity-overlay: 0.60;
-
-  /* ── Mode-agnostic system tokens ── */
   --aw-sys-type-display-size: var(--aw-ref-font-size-3xl);
   --aw-sys-type-display-line-height: var(--aw-ref-line-height-3xl);
   --aw-sys-type-display-weight: var(--aw-ref-font-weight-bold);
@@ -178,6 +176,7 @@
   --aw-sys-color-text-inverse: var(--aw-ref-color-neutral-950);
   --aw-sys-color-text-brand: var(--aw-ref-color-maroon-300);
   --aw-sys-color-text-accent: var(--aw-ref-color-amber-500);
+  --aw-sys-color-text-on-brand: var(--aw-ref-color-neutral-0);
   --aw-sys-color-interactive: var(--aw-ref-color-amber-500);
   --aw-sys-color-interactive-hover: var(--aw-ref-color-amber-400);
   --aw-sys-color-interactive-active: var(--aw-ref-color-amber-600);
@@ -211,6 +210,7 @@
   --aw-sys-color-text-inverse: var(--aw-ref-color-neutral-50);
   --aw-sys-color-text-brand: var(--aw-ref-color-maroon-600);
   --aw-sys-color-text-accent: var(--aw-ref-color-amber-700);
+  --aw-sys-color-text-on-brand: var(--aw-ref-color-neutral-0);
   --aw-sys-color-interactive: var(--aw-ref-color-amber-700);
   --aw-sys-color-interactive-hover: var(--aw-ref-color-amber-600);
   --aw-sys-color-interactive-active: var(--aw-ref-color-amber-800);
@@ -252,6 +252,11 @@ body {
   color: var(--aw-sys-color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--aw-sys-color-selection-bg);
 }
 
 /* ── Scrollbar ── */

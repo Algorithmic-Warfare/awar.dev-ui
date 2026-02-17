@@ -5,7 +5,7 @@ export { ThemeContext } from './providers/AWARProvider'
 
 // Tokens
 export { primitives } from './tokens/primitives'
-export { semanticsDark, semanticsLight } from './tokens/semantics'
+export { semanticsShared, semanticsDark, semanticsLight } from './tokens/semantics'
 
 // Hooks
 export { useTheme } from './hooks/useTheme'

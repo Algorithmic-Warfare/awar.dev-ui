@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { primitives } from './primitives.js'
-import { semanticsDark, semanticsLight } from './semantics.js'
+import { semanticsShared, semanticsDark, semanticsLight } from './semantics.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -28,13 +28,16 @@ function toBlock(selector: string, entries: [string, string][]): string {
 }
 
 const primitiveEntries = flatten(primitives as unknown as TokenObj, '--aw-ref')
+const sharedEntries = flatten(semanticsShared as unknown as TokenObj, '--aw-sys')
 const darkEntries = flatten(semanticsDark as unknown as TokenObj, '--aw-sys')
 const lightEntries = flatten(semanticsLight as unknown as TokenObj, '--aw-sys')
+
+const rootEntries = [...primitiveEntries, ...sharedEntries]
 
 const css = `/* AWAR Design System — Generated Token CSS */
 /* Do not edit manually. Run: npm run generate:tokens */
 
-${toBlock(':root', primitiveEntries)}
+${toBlock(':root', rootEntries)}
 
 ${toBlock('[data-mode="dark"]', darkEntries)}
 
@@ -62,8 +65,46 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--aw-sys-color-selection-bg);
+}
+
+/* ── Scrollbar ── */
+* {
+  &::-webkit-scrollbar {
+    background: var(--aw-sys-color-bg-surface);
+    width: 1ch;
+    height: 1ch;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--aw-sys-color-bg-surface);
+    border-inline-start: 1px solid var(--aw-sys-color-border-default);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--aw-sys-color-interactive);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--aw-sys-color-interactive-hover);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: var(--aw-sys-color-bg-surface);
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--aw-sys-color-interactive) var(--aw-sys-color-bg-surface);
+  }
+}
 `
 
 const outPath = resolve(__dirname, 'tokens.css')
 writeFileSync(outPath, css, 'utf-8')
-console.log(`✓ Generated ${outPath} (${primitiveEntries.length} primitives, ${darkEntries.length} dark semantics, ${lightEntries.length} light overrides)`)
+console.log(`✓ Generated ${outPath} (${primitiveEntries.length} primitives, ${sharedEntries.length} shared, ${darkEntries.length} dark, ${lightEntries.length} light)`)

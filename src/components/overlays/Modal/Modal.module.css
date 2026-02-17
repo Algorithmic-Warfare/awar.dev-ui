@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgb(0 0 0 / var(--aw-sys-state-scrim));
   z-index: var(--aw-sys-z-modal);
   display: flex;
   align-items: center;

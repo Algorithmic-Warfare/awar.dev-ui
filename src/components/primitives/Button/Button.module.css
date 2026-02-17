@@ -18,7 +18,7 @@
   line-height: var(--aw-sys-type-label-line-height);
   border-radius: 0;
   cursor: pointer;
-  transition: background-color 100ms ease-out, border-color 100ms ease-out;
+  transition: background-color 100ms ease-out, border-color 100ms ease-out, opacity 100ms ease-out;
   white-space: nowrap;
 }
 
@@ -71,8 +71,8 @@
   --aw-button-border: var(--aw-sys-color-feedback-error);
 }
 .danger:hover:not(:disabled) {
-  --aw-button-bg: var(--aw-ref-color-red-300);
-  --aw-button-border: var(--aw-ref-color-red-300);
+  --aw-button-bg: var(--aw-sys-color-feedback-error-text);
+  --aw-button-border: var(--aw-sys-color-feedback-error-text);
 }
 
 .ghost {

@@ -1,46 +1,4 @@
-export const semanticsDark = {
-  color: {
-    bg: {
-      root: 'var(--aw-ref-color-neutral-950)',
-      surface: 'var(--aw-ref-color-neutral-900)',
-      'surface-raised': 'var(--aw-ref-color-neutral-800)',
-      'surface-overlay': 'var(--aw-ref-color-neutral-700)',
-      brand: 'var(--aw-ref-color-maroon-500)',
-      'brand-subtle': 'var(--aw-ref-color-maroon-800)',
-    },
-    text: {
-      primary: 'var(--aw-ref-color-neutral-100)',
-      secondary: 'var(--aw-ref-color-neutral-400)',
-      muted: 'var(--aw-ref-color-neutral-500)',
-      inverse: 'var(--aw-ref-color-neutral-950)',
-      brand: 'var(--aw-ref-color-maroon-300)',
-      accent: 'var(--aw-ref-color-amber-500)',
-    },
-    interactive: {
-      DEFAULT: 'var(--aw-ref-color-amber-500)',
-      hover: 'var(--aw-ref-color-amber-400)',
-      active: 'var(--aw-ref-color-amber-600)',
-      muted: 'var(--aw-ref-color-amber-800)',
-    },
-    border: {
-      default: 'var(--aw-ref-color-neutral-700)',
-      strong: 'var(--aw-ref-color-neutral-500)',
-      interactive: 'var(--aw-ref-color-amber-500)',
-      brand: 'var(--aw-ref-color-maroon-400)',
-    },
-    feedback: {
-      error: 'var(--aw-ref-color-red-500)',
-      'error-text': 'var(--aw-ref-color-red-300)',
-      success: 'var(--aw-ref-color-green-500)',
-      'success-text': 'var(--aw-ref-color-green-300)',
-      warning: 'var(--aw-ref-color-yellow-500)',
-      'warning-text': 'var(--aw-ref-color-yellow-300)',
-      info: 'var(--aw-ref-color-blue-500)',
-      'info-text': 'var(--aw-ref-color-blue-300)',
-    },
-    selection: { bg: 'var(--aw-ref-color-amber-900)' },
-    focus: { ring: 'var(--aw-ref-color-amber-500)' },
-  },
+export const semanticsShared = {
   type: {
     display: {
       size: 'var(--aw-ref-font-size-3xl)',
@@ -146,6 +104,52 @@ export const semanticsDark = {
   },
 } as const
 
+export const semanticsDark = {
+  color: {
+    bg: {
+      root: 'var(--aw-ref-color-neutral-950)',
+      surface: 'var(--aw-ref-color-neutral-900)',
+      'surface-raised': 'var(--aw-ref-color-neutral-800)',
+      'surface-overlay': 'var(--aw-ref-color-neutral-700)',
+      brand: 'var(--aw-ref-color-maroon-500)',
+      'brand-subtle': 'var(--aw-ref-color-maroon-800)',
+    },
+    text: {
+      primary: 'var(--aw-ref-color-neutral-100)',
+      secondary: 'var(--aw-ref-color-neutral-400)',
+      muted: 'var(--aw-ref-color-neutral-500)',
+      inverse: 'var(--aw-ref-color-neutral-950)',
+      brand: 'var(--aw-ref-color-maroon-300)',
+      accent: 'var(--aw-ref-color-amber-500)',
+      'on-brand': 'var(--aw-ref-color-neutral-0)',
+    },
+    interactive: {
+      DEFAULT: 'var(--aw-ref-color-amber-500)',
+      hover: 'var(--aw-ref-color-amber-400)',
+      active: 'var(--aw-ref-color-amber-600)',
+      muted: 'var(--aw-ref-color-amber-800)',
+    },
+    border: {
+      default: 'var(--aw-ref-color-neutral-700)',
+      strong: 'var(--aw-ref-color-neutral-500)',
+      interactive: 'var(--aw-ref-color-amber-500)',
+      brand: 'var(--aw-ref-color-maroon-400)',
+    },
+    feedback: {
+      error: 'var(--aw-ref-color-red-500)',
+      'error-text': 'var(--aw-ref-color-red-300)',
+      success: 'var(--aw-ref-color-green-500)',
+      'success-text': 'var(--aw-ref-color-green-300)',
+      warning: 'var(--aw-ref-color-yellow-500)',
+      'warning-text': 'var(--aw-ref-color-yellow-300)',
+      info: 'var(--aw-ref-color-blue-500)',
+      'info-text': 'var(--aw-ref-color-blue-300)',
+    },
+    selection: { bg: 'var(--aw-ref-color-amber-900)' },
+    focus: { ring: 'var(--aw-ref-color-amber-500)' },
+  },
+} as const
+
 export const semanticsLight = {
   color: {
     bg: {
@@ -163,6 +167,7 @@ export const semanticsLight = {
       inverse: 'var(--aw-ref-color-neutral-50)',
       brand: 'var(--aw-ref-color-maroon-600)',
       accent: 'var(--aw-ref-color-amber-700)',
+      'on-brand': 'var(--aw-ref-color-neutral-0)',
     },
     interactive: {
       DEFAULT: 'var(--aw-ref-color-amber-700)',

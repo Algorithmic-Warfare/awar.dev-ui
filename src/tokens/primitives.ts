@@ -47,9 +47,9 @@ export const primitives = {
     size: { xs: '11px', sm: '12px', md: '14px', lg: '16px', xl: '20px', '2xl': '24px', '3xl': '28px' },
     weight: { regular: '400', medium: '500', bold: '700' },
   },
-  lineHeight: { xs: '16px', sm: '16px', md: '20px', lg: '24px', xl: '28px', '2xl': '32px', '3xl': '36px' },
-  letterSpacing: { normal: '0em', wide: '0.05em', wider: '0.1em' },
-  textTransform: { none: 'none', uppercase: 'uppercase' },
+  'line-height': { xs: '16px', sm: '16px', md: '20px', lg: '24px', xl: '28px', '2xl': '32px', '3xl': '36px' },
+  'letter-spacing': { normal: '0em', wide: '0.05em', wider: '0.1em' },
+  'text-transform': { none: 'none', uppercase: 'uppercase' },
   space: { 0: '0px', 1: '2px', 2: '4px', 3: '8px', 4: '12px', 5: '16px', 6: '24px', 7: '32px', 8: '48px', 9: '64px', 10: '96px' },
   radius: { none: '0px' },
   border: {

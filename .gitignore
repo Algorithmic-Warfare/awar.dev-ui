@@ -1,12 +1,7 @@
 node_modules
 dist
-test-results
-playwright-report
 .DS_Store
 *.local
-*.png
+*.tsbuildinfo
 .claude/
 .playwright-mcp/
-*.tsbuildinfo
-vite.config.d.ts
-vite.config.js

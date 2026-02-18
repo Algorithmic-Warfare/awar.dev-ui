@@ -24,11 +24,7 @@
     "clean": "rm -rf dist",
     "build:lib": "npm run clean && vite build --config vite.config.lib.ts && tsc --project tsconfig.lib.json",
     "preview": "vite preview",
-    "generate:tokens": "tsx src/tokens/generate-css.ts",
-    "test": "npx playwright test",
-    "test:visual": "npx playwright test tests/visual",
-    "test:functional": "npx playwright test tests/functional",
-    "test:a11y": "npx playwright test tests/a11y"
+    "generate:tokens": "tsx src/tokens/generate-css.ts"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -51,8 +47,6 @@
     "typescript": "^5.6.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@playwright/test": "^1.49.0",
-    "@axe-core/playwright": "^4.10.0",
     "tsx": "^4.19.0"
   }
 }

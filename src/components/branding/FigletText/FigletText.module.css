@@ -1,11 +1,17 @@
 .figletText {
-  --aw-figlet-font: var(--aw-ref-font-mono);
   --aw-figlet-size: var(--aw-ref-font-size-md);
 
   margin: 0;
   line-height: 1.2em;
-  font-family: var(--aw-figlet-font);
+  /* Use system monospace — JetBrains Mono has non-uniform widths for
+     box-drawing/block characters which breaks ASCII art alignment. */
+  font-family: ui-monospace, monospace;
   font-size: var(--aw-figlet-size);
+  /* Gradient applied via inline background; clip to text glyphs */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .line {

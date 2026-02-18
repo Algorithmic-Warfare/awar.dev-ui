@@ -31,6 +31,7 @@ export const categories: Category[] = [
   { name: 'PRIMITIVES', slug: 'primitives' },
   { name: 'CONTAINERS', slug: 'containers' },
   { name: 'OVERLAYS', slug: 'overlays' },
+  { name: 'NAVIGATION', slug: 'navigation' },
 ]
 
 export const registry: ComponentEntry[] = [
@@ -407,6 +408,48 @@ export const registry: ComponentEntry[] = [
     </Popover.Close>
   </Popover.Content>
 </Popover>`,
+  },
+
+  // ── Navigation ──
+  {
+    slug: 'tree-view',
+    name: 'TreeView',
+    category: 'navigation',
+    description: 'Recursive collapsible tree with CSS-drawn connectors for hierarchical navigation.',
+    props: [
+      { name: 'nodes', type: 'TreeNode[]', description: 'Array of top-level nodes (each may contain nested children)' },
+      { name: 'activeKey', type: 'string', description: 'Key of the currently active leaf item (highlighted)' },
+      { name: 'defaultCollapsed', type: 'Record<string, boolean>', default: '{}', description: 'Initial collapsed state keyed by node key' },
+      { name: 'renderItem', type: '(node: TreeNode, active: boolean) => ReactNode', description: 'Custom render function for leaf nodes' },
+    ],
+    subcomponents: [
+      { name: 'TreeNode', props: [
+        { name: 'key', type: 'string', description: 'Unique identifier' },
+        { name: 'label', type: 'string', description: 'Display text' },
+        { name: 'href', type: 'string', description: 'Optional link URL (leaf nodes)' },
+        { name: 'children', type: 'TreeNode[]', description: 'Nested children — presence makes the node a collapsible branch' },
+      ]},
+    ],
+    usage: `<TreeView
+  nodes={[
+    {
+      key: 'src',
+      label: 'SRC',
+      children: [
+        {
+          key: 'components',
+          label: 'COMPONENTS',
+          children: [
+            { key: 'button', label: 'Button.tsx' },
+            { key: 'card', label: 'Card.tsx' },
+          ],
+        },
+        { key: 'index', label: 'index.ts' },
+      ],
+    },
+  ]}
+  activeKey="button"
+/>`,
   },
 ]
 

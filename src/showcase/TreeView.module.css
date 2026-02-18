@@ -1,0 +1,94 @@
+.root {
+  /* top-level wrapper — no styling needed */
+}
+
+/* ── Branch toggle button ── */
+
+.branchButton {
+  display: block;
+  width: 100%;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  color: var(--aw-sys-color-text-secondary);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Nested branch buttons are lighter weight */
+.branchButtonNested {
+  composes: branchButton;
+  font-weight: 500;
+  color: var(--aw-sys-color-text-primary);
+}
+
+/* ── Children container ── */
+
+.children {
+  position: relative;
+  margin-left: 7px;
+  padding-left: 14px;
+}
+
+/* Continuous vertical line */
+.children::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px solid var(--aw-sys-color-text-muted);
+}
+
+/* ── Item (leaf or branch inside a children container) ── */
+
+.item {
+  position: relative;
+  padding: 2px 0;
+}
+
+/* Horizontal arm */
+.item::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 10px;  /* align with first line of text rather than 50%, works better for branches */
+  width: 10px;
+  height: 0;
+  border-top: 1px solid var(--aw-sys-color-text-muted);
+}
+
+/* Last child: mask the vertical line below */
+.itemLast {
+  composes: item;
+}
+
+.itemLast::after {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 10px;
+  bottom: 0;
+  width: 0;
+  border-left: 1px solid var(--aw-sys-color-bg-root);
+}
+
+/* ── Links ── */
+
+.link {
+  text-decoration: none;
+  transition: color 0.1s, background-color 0.1s;
+  border-bottom: 1px solid transparent;
+}
+
+.linkActive {
+  composes: link;
+  color: var(--aw-sys-color-text-accent);
+  background-color: var(--aw-sys-color-surface-raised);
+  border-bottom-color: var(--aw-sys-color-text-accent);
+}

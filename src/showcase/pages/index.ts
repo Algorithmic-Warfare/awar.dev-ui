@@ -21,6 +21,7 @@ import ModalPage from './ModalPage'
 import DropdownPage from './DropdownPage'
 import TooltipPage from './TooltipPage'
 import PopoverPage from './PopoverPage'
+import TreeViewPage from './TreeViewPage'
 
 export const pages: Record<string, ComponentType> = {
   'logo': LogoPage,
@@ -44,4 +45,5 @@ export const pages: Record<string, ComponentType> = {
   'dropdown': DropdownPage,
   'tooltip': TooltipPage,
   'popover': PopoverPage,
+  'tree-view': TreeViewPage,
 }

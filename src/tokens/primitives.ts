@@ -43,7 +43,7 @@ export const primitives = {
     blue: { 300: '#77AADD', 500: '#4488BB' },
   },
   font: {
-    mono: '"Berkeley Mono", "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace',
+    mono: '"JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace',
     size: { xs: '11px', sm: '12px', md: '14px', lg: '16px', xl: '20px', '2xl': '24px', '3xl': '28px' },
     weight: { regular: '400', medium: '500', bold: '700' },
   },

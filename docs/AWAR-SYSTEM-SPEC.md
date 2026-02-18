@@ -123,7 +123,7 @@ These 12 decisions generate the complete primitive and semantic token system.
 
 | # | Decision | Value |
 |---|----------|-------|
-| 1 | Brand typeface | Single monospace stack: `"Berkeley Mono", "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace`. No separate body face. Hierarchy via weight, size, color — never font-family switching. |
+| 1 | Brand typeface | Single monospace stack: `"JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace`. Loaded via Google Fonts CDN. No separate body face. Hierarchy via weight, size, color — never font-family switching. |
 | 2 | Base font size | 14px. Gives ~80 chars per 672px container (classic 80-column terminal width). |
 | 3 | Type scale ratio | 1.200 (Minor Third). Snapped values: 11, 12, 14, 16, 20, 24, 28. Line-heights snap to 4px grid: 16, 16, 20, 24, 28, 32, 36. |
 
@@ -197,8 +197,8 @@ These 13 decisions define how the token system becomes a shippable React compone
 
 | # | Decision | Value |
 |---|----------|-------|
-| 24 | Component set | All four tiers + branding. Branding: Logo, Wordmark, LogoLockup. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. |
-| 25 | Package target | Installed dependency with Provider model (`npm install awar-ui`). Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Similar to Chakra UI, MUI, and Radix Themes. |
+| 24 | Component set | All five tiers + branding. Branding: Logo, Wordmark, LogoLockup. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. Tier 4 (Navigation): TreeView. |
+| 25 | Package target | Installed dependency with Provider model (installed via GitHub: `npm install Algorithmic-Warfare/awar.dev-ui`). Not yet published to npm. Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Similar to Chakra UI, MUI, and Radix Themes. |
 
 ---
 
@@ -274,7 +274,7 @@ New components reference semantic tokens, never primitives directly.
 
 ```css
 /* ── Font Family ── */
---aw-ref-font-mono: "Berkeley Mono", "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace;
+--aw-ref-font-mono: "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code", "Source Code Pro", ui-monospace, monospace;
 
 /* ── Font Size ── */
 --aw-ref-font-size-xs:   11px;
@@ -588,10 +588,24 @@ Block fills:            █ ▓ ▒ ░
 Progress:               ████████░░░░
 Checkbox:               [x] [ ] [~]
 Dividers:               ── ═══ ─ · ─
-Section toggle:         ▾ EXPANDED    ▸ COLLAPSED
+Section toggle:         [-] EXPANDED    [+] COLLAPSED
 Keyboard shortcuts:     ⌘+S  ⌃+T  ⌥+1
 Status indicators:      ● (filled dot)
+CJK punctuation:        「」。
 ```
+
+### CJK Design Characters
+
+The Japanese corner brackets 「」 and ideographic period 。 are adopted as part of the AWAR aesthetic. They serve as decorative punctuation and visual accents — used in headers, taglines, pull quotes, and UI labels where a distinctive typographic voice is desired.
+
+**Usage examples:**
+```
+「ALGORITHMIC WARFARE」        ← Title framing
+STATUS。ONLINE                 ← Decorative period as separator
+「v0.1.0」                     ← Version badges / tags
+```
+
+These characters are content-level conventions, not tokenized. They pair naturally with the monospace grid and the terminal aesthetic — visually distinct from standard ASCII without breaking alignment in fixed-width fonts.
 
 ---
 
@@ -794,6 +808,30 @@ The shortcut and the hint are declared in the same component, 3 lines apart. If 
 | `Tooltip` | `Tooltip` | Hover/focus hint. Small delay, instant appear. |
 | `Popover` | `Popover` | Rich content overlay anchored to trigger. |
 
+### Tier 4 — Navigation
+
+| Component | Description | Key Props |
+|-----------|-------------|-----------|
+| `TreeView` | Recursive collapsible tree. Renders a `TreeNode[]` hierarchy with indentation-only depth indication (no connector lines). Branches toggle open/closed with `[-]`/`[+]` prefixes. | `nodes`, `activeKey`, `defaultCollapsed`, `renderItem` |
+
+**`TreeNode` interface:**
+
+```ts
+interface TreeNode {
+  key: string        // unique identifier
+  label: string      // display text
+  href?: string      // optional link for leaf nodes
+  children?: TreeNode[]  // nested nodes (presence = branch)
+}
+```
+
+**Design decisions:**
+- Hierarchy expressed through **indentation only** (16px per level) — no ASCII box-drawing connectors, no CSS border lines. Clean and minimal.
+- Top-level branches render with bold `--aw-sys-color-text-secondary` headers (letter-spacing `0.08em`).
+- Nested branches render with medium-weight `--aw-sys-color-text-primary` labels.
+- Active leaf nodes highlight with `--aw-sys-color-text-accent` and a subtle bottom border.
+- `renderItem` callback enables custom leaf rendering (badges, click handlers, inline status).
+
 ---
 
 ## Part 7: Implementation Notes for Claude Code
@@ -831,11 +869,13 @@ awar-ui/
 │   │   │   ├── Table/
 │   │   │   ├── ActionBar/
 │   │   │   └── List/
-│   │   └── overlays/
-│   │       ├── Modal/
-│   │       ├── Dropdown/
-│   │       ├── Tooltip/
-│   │       └── Popover/
+│   │   ├── overlays/
+│   │   │   ├── Modal/
+│   │   │   ├── Dropdown/
+│   │   │   ├── Tooltip/
+│   │   │   └── Popover/
+│   │   └── navigation/
+│   │       └── TreeView/
 │   ├── providers/
 │   │   └── AWARProvider/
 │   │       ├── AWARProvider.tsx    # Provider component (CSS injection + theme context)
@@ -868,7 +908,7 @@ Button/
 3. **Mode switching** is pure CSS: `[data-mode="dark"]` and `[data-mode="light"]` selectors in `tokens.css` swap semantic values. No React context needed.
 4. **Transitions**: Apply `transition: background-color 100ms ease-out, border-color 100ms ease-out, opacity 100ms ease-out` to interactive elements. No transitions on overlays.
 5. **Border-radius: 0** on everything. Enforce in a global reset.
-6. **Font-family**: Set once on `body` via tokens.css. Components inherit.
+6. **Font-family**: JetBrains Mono loaded via Google Fonts CDN (`<link>` in `index.html`). Set once on `body` via tokens.css. Components inherit.
 7. **Radix components** (Tier 3): Import unstyled primitives, apply AWAR styles via CSS Modules. Follow Radix's `data-state` attributes for styling open/closed/active states.
 8. **Keyboard shortcuts** are always colocated: `useShortcut` call + `<Kbd>` hint live in the same component. No central shortcut registry. Scoped by default, `{ global: true }` for page-level bindings.
 
@@ -886,10 +926,16 @@ Button/
 
 ### Consumer Integration
 
-Consumers wrap their app in `<AWARProvider>` — this auto-injects the token CSS and provides theme context:
+Consumers install via GitHub (not yet published to npm):
+
+```bash
+npm install Algorithmic-Warfare/awar.dev-ui
+```
+
+Then wrap their app in `<AWARProvider>` — this auto-injects the token CSS and provides theme context:
 
 ```tsx
-import { AWARProvider } from 'awar-ui'
+import { AWARProvider } from '@awar.dev/ui'
 
 function App() {
   return (
@@ -903,7 +949,7 @@ function App() {
 Theme state is accessed via the `useAWARTheme` hook:
 
 ```tsx
-import { useAWARTheme } from 'awar-ui'
+import { useAWARTheme } from '@awar.dev/ui'
 
 function ThemeToggle() {
   const { mode, toggle, setMode } = useAWARTheme()

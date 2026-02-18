@@ -1,0 +1,14 @@
+.figletText {
+  --aw-figlet-font: var(--aw-ref-font-mono);
+  --aw-figlet-size: var(--aw-ref-font-size-md);
+
+  margin: 0;
+  line-height: 1.2em;
+  font-family: var(--aw-figlet-font);
+  font-size: var(--aw-figlet-size);
+}
+
+.line {
+  white-space: pre;
+  height: 1.2em;
+}

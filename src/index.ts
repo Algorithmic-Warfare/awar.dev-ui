@@ -19,6 +19,8 @@ export { Wordmark } from './components/branding/Wordmark'
 export type { WordmarkProps, WordmarkSize } from './components/branding/Wordmark'
 export { LogoLockup } from './components/branding/LogoLockup'
 export type { LogoLockupProps, LogoLockupOrientation } from './components/branding/LogoLockup'
+export { FigletText } from './components/branding/FigletText'
+export type { FigletTextProps, FigletGradientPreset, FigletGradientCustom, FigletDirection, FigletFont } from './components/branding/FigletText'
 
 // Layout
 export { Stack } from './components/layout/Stack'

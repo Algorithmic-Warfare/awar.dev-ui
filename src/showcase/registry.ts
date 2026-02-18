@@ -71,6 +71,28 @@ export const registry: ComponentEntry[] = [
     ],
     usage: `<LogoLockup orientation="stacked" size="lg" subtitle />`,
   },
+  {
+    slug: 'figlet-text',
+    name: 'FigletText',
+    category: 'branding',
+    description: 'ASCII art text with per-character gradient coloring. Built-in AWAR figlet fonts and gradient presets.',
+    props: [
+      { name: 'lines', type: 'string[]', description: 'Pre-rendered ASCII art lines. Overrides built-in font when provided.' },
+      { name: 'font', type: "'ansi-shadow' | 'bloody' | 'calvin-s'", default: "'ansi-shadow'", description: 'Built-in AWAR figlet font' },
+      { name: 'fullWordmark', type: 'boolean', default: 'false', description: 'Show full "ALGORITHMIC WARFARE" wordmark' },
+      { name: 'gradient', type: "'brand' | 'fire' | 'blood' | 'mono' | 'ember' | 'solar' | { from, to }", default: "'brand'", description: 'Gradient preset or custom hex pair' },
+      { name: 'direction', type: "'vertical' | 'horizontal' | 'diagonal'", default: "'vertical'", description: 'Gradient direction' },
+      { name: 'fontSize', type: 'number', description: 'Font size override in pixels' },
+    ],
+    usage: `<FigletText gradient="brand" direction="vertical" />
+
+<FigletText font="calvin-s" gradient="fire" direction="horizontal" />
+
+<FigletText
+  gradient={{ from: "#773333", to: "#FF9944" }}
+  fullWordmark
+/>`,
+  },
 
   // ── Layout ──
   {

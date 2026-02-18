@@ -3,6 +3,7 @@ import { ComponentType } from 'react'
 import LogoPage from './LogoPage'
 import WordmarkPage from './WordmarkPage'
 import LogoLockupPage from './LogoLockupPage'
+import FigletTextPage from './FigletTextPage'
 import StackPage from './StackPage'
 import InlinePage from './InlinePage'
 import GridPage from './GridPage'
@@ -27,6 +28,7 @@ export const pages: Record<string, ComponentType> = {
   'logo': LogoPage,
   'wordmark': WordmarkPage,
   'logo-lockup': LogoLockupPage,
+  'figlet-text': FigletTextPage,
   'stack': StackPage,
   'inline': InlinePage,
   'grid': GridPage,

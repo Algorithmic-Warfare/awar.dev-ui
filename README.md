@@ -13,6 +13,7 @@
 | Elevation | Tone-based — no `box-shadow` |
 | Palette | Warm CRT: maroon `#773333` x amber `#FF9944` |
 | Modes | Dark-first, light mode supported |
+| Accents | CJK design characters 「」。 for decorative punctuation |
 
 ---
 
@@ -102,6 +103,12 @@ Built on [Radix UI](https://www.radix-ui.com/) for accessibility and keyboard na
 | `Tooltip` | `content` · `side` · `sideOffset` · `delayDuration` |
 | `Popover` | `open` · `onOpenChange` — sub-components: `Popover.Trigger`, `Popover.Content` (`align`, `side`), `Popover.Close` |
 
+### Navigation
+
+| Component | Key Props |
+|-----------|-----------|
+| `TreeView` | `nodes`: `TreeNode[]` · `activeKey` · `defaultCollapsed` · `renderItem` — recursive collapsible tree with indentation-only hierarchy |
+
 ### Branding
 
 | Component | Key Props |
@@ -183,6 +190,7 @@ src/
     primitives/      Button, Text, Input, Badge, Divider, Kbd
     containers/      Card, Alert, Table, ActionBar, List
     overlays/        Modal, Dropdown, Tooltip, Popover
+    navigation/      TreeView
   providers/         AWARProvider
   hooks/             useTheme, useAWARTheme, useShortcut
   tokens/            primitives.ts, semantics.ts, generate-css.ts

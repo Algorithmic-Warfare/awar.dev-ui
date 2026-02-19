@@ -198,7 +198,7 @@ These 13 decisions define how the token system becomes a shippable React compone
 | # | Decision | Value |
 |---|----------|-------|
 | 24 | Component set | All five tiers + branding. Branding: Logo, Wordmark, LogoLockup, FigletText. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Frame, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. Tier 4 (Navigation): TreeView. |
-| 25 | Package target | Installed dependency with Provider model (installed via GitHub: `npm install Algorithmic-Warfare/awar.dev-ui`). Not yet published to npm. Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Similar to Chakra UI, MUI, and Radix Themes. |
+| 25 | Package target | Published to npm as `@awar.dev/ui` (`npm install @awar.dev/ui`). Scoped public package with Provider model. Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Versioned with conventional commits via `commit-and-tag-version` (local workflow, no CI). Similar to Chakra UI, MUI, and Radix Themes. |
 
 ---
 
@@ -1024,10 +1024,10 @@ Button/
 
 ### Consumer Integration
 
-Consumers install via GitHub (not yet published to npm):
+Consumers install from npm:
 
 ```bash
-npm install Algorithmic-Warfare/awar.dev-ui
+npm install @awar.dev/ui
 ```
 
 Then wrap their app in `<AWARProvider>` — this auto-injects the token CSS and provides theme context:

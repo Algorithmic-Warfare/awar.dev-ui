@@ -63,7 +63,7 @@ const light = {
   focusRing: ref.color.amber[600],
 }
 
-type Theme = typeof dark
+type Theme = { [K in keyof typeof dark]: string }
 
 const FONT = primitives.font.mono
 

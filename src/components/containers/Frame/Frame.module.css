@@ -1,0 +1,128 @@
+.frame {
+  --aw-frame-border: var(--aw-sys-color-border-default);
+  --aw-frame-tick: 8px;
+  /* Override --aw-frame-bg to match parent surface when using titles */
+  --aw-frame-bg: var(--aw-sys-color-bg-surface);
+
+  position: relative;
+  padding: var(--aw-sys-space-inset-md);
+  border-radius: 0;
+}
+
+/* ── Grid: full box ── */
+
+.grid {
+  border: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-frame-border);
+}
+
+/* ── Stack: top + bottom lines with corner ticks ── */
+
+.stack {
+  border-top: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-frame-border);
+  border-bottom: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-frame-border);
+}
+
+.stack::before,
+.stack::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  width: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--aw-frame-border) 0,
+    var(--aw-frame-border) var(--aw-frame-tick),
+    transparent var(--aw-frame-tick),
+    transparent calc(100% - var(--aw-frame-tick)),
+    var(--aw-frame-border) calc(100% - var(--aw-frame-tick)),
+    var(--aw-frame-border) 100%
+  );
+}
+.stack::before { left: 0; }
+.stack::after { right: 0; }
+
+/* ── Inline: left + right lines with corner ticks ── */
+
+.inline {
+  border-left: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-frame-border);
+  border-right: var(--aw-ref-border-width-thin) var(--aw-ref-border-style-solid) var(--aw-frame-border);
+}
+
+.inline::before,
+.inline::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    var(--aw-frame-border) 0,
+    var(--aw-frame-border) var(--aw-frame-tick),
+    transparent var(--aw-frame-tick),
+    transparent calc(100% - var(--aw-frame-tick)),
+    var(--aw-frame-border) calc(100% - var(--aw-frame-tick)),
+    var(--aw-frame-border) 100%
+  );
+}
+.inline::before { top: 0; }
+.inline::after { bottom: 0; }
+
+/* ── Accent colors ── */
+
+.accentBrand {
+  --aw-frame-border: var(--aw-sys-color-border-brand);
+}
+.accentInteractive {
+  --aw-frame-border: var(--aw-sys-color-border-interactive);
+}
+.accentError {
+  --aw-frame-border: var(--aw-sys-color-feedback-error);
+}
+.accentSuccess {
+  --aw-frame-border: var(--aw-sys-color-feedback-success);
+}
+.accentWarning {
+  --aw-frame-border: var(--aw-sys-color-feedback-warning);
+}
+.accentInfo {
+  --aw-frame-border: var(--aw-sys-color-feedback-info);
+}
+
+/* ── Legend title ── */
+
+.title {
+  position: absolute;
+  top: 0;
+  left: var(--aw-sys-space-inset-md);
+  transform: translateY(-50%);
+  padding: 0 var(--aw-sys-space-inset-xs);
+  background: var(--aw-frame-bg);
+  font-size: var(--aw-sys-type-label-size);
+  font-weight: var(--aw-sys-type-label-weight);
+  letter-spacing: var(--aw-sys-type-label-tracking);
+  text-transform: var(--aw-sys-type-label-transform);
+  line-height: var(--aw-sys-type-label-line-height);
+  color: var(--aw-frame-border);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  right: var(--aw-sys-space-inset-md);
+  transform: translateY(-50%);
+  padding: 0 var(--aw-sys-space-inset-xs);
+  background: var(--aw-frame-bg);
+  font-size: var(--aw-sys-type-caption-size);
+  font-weight: var(--aw-sys-type-caption-weight);
+  letter-spacing: var(--aw-sys-type-caption-tracking);
+  line-height: var(--aw-sys-type-caption-line-height);
+  color: var(--aw-sys-color-text-muted);
+  white-space: nowrap;
+  z-index: 1;
+}

@@ -39,6 +39,8 @@ export { Kbd } from './components/primitives/Kbd'
 // Containers
 export { Card } from './components/containers/Card'
 export type { CardProps, CardVariant, CardHeaderProps, CardBodyProps, CardFooterProps } from './components/containers/Card'
+export { Frame } from './components/containers/Frame'
+export type { FrameProps, FrameVariant, FrameAccent } from './components/containers/Frame'
 export { Alert } from './components/containers/Alert'
 export type { AlertProps, AlertVariant } from './components/containers/Alert'
 export { Table } from './components/containers/Table'

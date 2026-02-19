@@ -14,6 +14,7 @@ import BadgePage from './BadgePage'
 import DividerPage from './DividerPage'
 import KbdPage from './KbdPage'
 import CardPage from './CardPage'
+import FramePage from './FramePage'
 import AlertPage from './AlertPage'
 import TablePage from './TablePage'
 import ActionBarPage from './ActionBarPage'
@@ -39,6 +40,7 @@ export const pages: Record<string, ComponentType> = {
   'divider': DividerPage,
   'kbd': KbdPage,
   'card': CardPage,
+  'frame': FramePage,
   'alert': AlertPage,
   'table': TablePage,
   'action-bar': ActionBarPage,

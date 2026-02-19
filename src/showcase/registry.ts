@@ -234,6 +234,34 @@ export const registry: ComponentEntry[] = [
 </Card>`,
   },
   {
+    slug: 'frame',
+    name: 'Frame',
+    category: 'containers',
+    description: 'Decorative boundary container with variant border patterns tied to layout direction.',
+    props: [
+      { name: 'variant', type: "'grid' | 'stack' | 'inline'", default: "'grid'", description: 'Border pattern: grid (full box), stack (top + bottom rails), inline (left + right rails)' },
+      { name: 'accent', type: "'default' | 'brand' | 'interactive' | 'error' | 'success' | 'warning' | 'info'", default: "'default'", description: 'Border accent color' },
+      { name: 'title', type: 'string', description: 'Legend-style title on the top border' },
+      { name: 'label', type: 'string', description: 'Right-aligned annotation on the top border' },
+    ],
+    usage: `<Frame variant="grid" accent="interactive" title="STATUS">
+  <Text>Content inside a full-box frame</Text>
+</Frame>
+
+<Frame variant="stack" accent="brand">
+  <Stack gap="sm">
+    <Text>Horizontal rails</Text>
+  </Stack>
+</Frame>
+
+<Frame variant="inline" accent="info">
+  <Inline gap="sm">
+    <Badge>A</Badge>
+    <Badge>B</Badge>
+  </Inline>
+</Frame>`,
+  },
+  {
     slug: 'alert',
     name: 'Alert',
     category: 'containers',

@@ -1,0 +1,56 @@
+name: Bug Report
+description: Report a visual or functional bug in an AWAR component
+labels: ["bug"]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Affected component(s)
+      placeholder: e.g. Frame, Card, Button
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug. Include screenshots if it's visual.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Minimal code or steps to reproduce.
+      render: tsx
+      placeholder: |
+        <Frame variant="stack" accent="brand">
+          <Text>This breaks when...</Text>
+        </Frame>
+    validations:
+      required: true
+
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Dark
+        - Light
+        - Both
+      default: 0
+
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: e.g. 1.0.0

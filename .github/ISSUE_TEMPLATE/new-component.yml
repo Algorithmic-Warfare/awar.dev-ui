@@ -1,0 +1,75 @@
+name: New Component Proposal
+description: Propose a new component for the AWAR design system
+labels: ["component", "proposal"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Component name
+      placeholder: e.g. Tabs, Accordion, ProgressBar
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Branding
+        - Layout
+        - Primitives
+        - Containers
+        - Overlays
+        - Navigation
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What does this component do? Why does the design system need it?
+      placeholder: A brief summary of the component's purpose and where it fits in the AWAR design language.
+    validations:
+      required: true
+
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API
+      description: Sketch out the props and usage. Use code blocks.
+      render: tsx
+      placeholder: |
+        interface FooProps {
+          variant?: 'a' | 'b'
+          children: ReactNode
+        }
+
+        <Foo variant="a">content</Foo>
+    validations:
+      required: true
+
+  - type: textarea
+    id: variants
+    attributes:
+      label: Variants & states
+      description: List visual variants, interactive states, or accent mappings this component should support.
+      placeholder: |
+        - default, filled
+        - accent colors: brand, error, success, warning, info
+        - disabled state
+
+  - type: textarea
+    id: tokens
+    attributes:
+      label: Token usage
+      description: Which existing semantic tokens does this component use? Does it need new component-level tokens?
+      placeholder: |
+        Uses: --aw-sys-color-bg-surface, --aw-sys-color-border-default
+        New:  --aw-comp-foo-radius
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to prior art, screenshots, ASCII mockups, or related issues.

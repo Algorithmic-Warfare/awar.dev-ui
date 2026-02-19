@@ -31,12 +31,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "clean": "rm -rf dist",
     "build:lib": "npm run clean && vite build --config vite.config.lib.ts && tsc --project tsconfig.lib.json",
+    "typecheck": "tsc -b",
+    "clean": "rm -rf dist",
     "preview": "vite preview",
     "generate:tokens": "tsx src/tokens/generate-css.ts",
+    "prepublishOnly": "git describe --exact-match --match \"v*\" HEAD || (echo \"No version tag on HEAD. Run 'npm run release' first.\" && exit 1) && npm run typecheck && npm run build:lib",
     "release": "commit-and-tag-version",
-    "release:first": "commit-and-tag-version --first-release"
+    "release:first": "commit-and-tag-version --first-release",
+    "prepare": "node .husky/install.mjs"
   },
   "peerDependencies": {
     "@radix-ui/react-dialog": "^1.1.0",
@@ -51,10 +54,12 @@
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-popover": "^1.1.6",
     "@radix-ui/react-tooltip": "^1.1.8",
+    "@types/node": "^25.3.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.0",
     "commit-and-tag-version": "^12.6.1",
+    "husky": "^9.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsx": "^4.19.0",

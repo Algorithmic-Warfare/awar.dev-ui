@@ -11,9 +11,9 @@ Closes #
 ## Checklist
 
 ### All PRs
-- [ ] `tsc --project tsconfig.lib.json --noEmit` passes
+- [ ] `npm run typecheck` passes
 - [ ] `npm run build:lib` succeeds
-- [ ] Showcase builds (`npx vite build`)
+- [ ] `npm run build` succeeds (showcase)
 
 ### New component PRs
 - [ ] Four-file structure: `Component.tsx`, `Component.types.ts`, `Component.module.css`, `index.ts`

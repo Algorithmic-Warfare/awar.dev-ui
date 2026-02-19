@@ -28,8 +28,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Typecheck library
-        run: npx tsc --project tsconfig.lib.json --noEmit
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Build library
         run: npm run build:lib

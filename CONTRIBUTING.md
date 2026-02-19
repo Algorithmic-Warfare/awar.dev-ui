@@ -56,14 +56,14 @@ Types that are hidden: `docs`, `chore`, `style`, `test`.
 ## Typecheck and Build
 
 ```bash
-# Typecheck library (excludes showcase)
-npx tsc --project tsconfig.lib.json --noEmit
+# Typecheck everything (library + showcase)
+npm run typecheck
 
-# Build library
+# Build library for npm
 npm run build:lib
 
-# Build showcase
-npx vite build
+# Build showcase app
+npm run build
 ```
 
 CI runs all three on every PR.

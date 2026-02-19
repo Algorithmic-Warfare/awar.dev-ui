@@ -1,6 +1,16 @@
 {
   "name": "@awar.dev/ui",
   "version": "1.0.0",
+  "description": "Terminal-inspired React component library — Algorithmic Warfare design system",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Algorithmic-Warfare/awar.dev-ui.git"
+  },
+  "homepage": "https://github.com/Algorithmic-Warfare/awar.dev-ui",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

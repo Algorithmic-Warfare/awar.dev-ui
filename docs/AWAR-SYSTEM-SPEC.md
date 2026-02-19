@@ -197,7 +197,7 @@ These 13 decisions define how the token system becomes a shippable React compone
 
 | # | Decision | Value |
 |---|----------|-------|
-| 24 | Component set | All five tiers + branding. Branding: Logo, Wordmark, LogoLockup. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. Tier 4 (Navigation): TreeView. |
+| 24 | Component set | All five tiers + branding. Branding: Logo, Wordmark, LogoLockup, FigletText. Tier 0 (Layout): Stack, Inline, Grid. Tier 1 (Primitives): Text, Button, Input, Badge, Divider, Kbd. Tier 2 (Containers): Card, Frame, Alert, Table, ActionBar, List. Tier 3 (Overlays): Modal, Dropdown, Tooltip, Popover. Tier 4 (Navigation): TreeView. |
 | 25 | Package target | Installed dependency with Provider model (installed via GitHub: `npm install Algorithmic-Warfare/awar.dev-ui`). Not yet published to npm. Consumer wraps their app in `<AWARProvider>`, which auto-injects token CSS and provides theme context. Similar to Chakra UI, MUI, and Radix Themes. |
 
 ---
@@ -788,12 +788,14 @@ The shortcut and the hint are declared in the same component, 3 lines apart. If 
 | `Logo` | SVG mark component. Props: `size` (xs–2xl), `variant` (default, brand, accent, mono, inverse). Renders `currentColor` SVG at standardized dimensions. | `default`, `brand`, `accent`, `mono`, `inverse` |
 | `Wordmark` | "AWAR" text rendered in system monospace. Props: `size`, `subtitle` (boolean — shows "ALGORITHMIC WARFARE"). | — |
 | `LogoLockup` | Composed mark + wordmark. Props: `orientation` (horizontal, stacked), `size`, `variant`, `subtitle`. | `horizontal`, `stacked` |
+| `FigletText` | ASCII art text with CSS gradient coloring. Built-in AWAR figlet fonts and gradient presets. Uses `ui-monospace, monospace` for uniform character widths. | Fonts: `ansi-shadow`, `bloody`, `calvin-s`. Gradients: `brand`, `fire`, `blood`, `mono`, `ember`, `solar` |
 
 ### Tier 2 — Containers (compound components)
 
 | Component | Parts | Description |
 |-----------|-------|-------------|
-| `Card` | `Card`, `Card.Header`, `Card.Body`, `Card.Footer` | MS-DOS-style panel with border and header bar |
+| `Card` | `Card`, `Card.Header`, `Card.Body`, `Card.Footer` | MS-DOS-style panel with border and header bar. Surface-based containment (opaque fill). |
+| `Frame` | `Frame` | Decorative boundary container. Line-based containment (transparent, border-only). Variants tied to layout direction. |
 | `Alert` | `Alert` | Left-border-accented feedback message. Variants: error, warning, success, info |
 | `Table` | `Table`, `Table.Head`, `Table.Body`, `Table.Row`, `Table.Cell` | Dense monospace data table with header row |
 | `ActionBar` | `ActionBar`, `ActionBar.Item` | Top/bottom bar with keyboard shortcut labels |
@@ -832,6 +834,100 @@ interface TreeNode {
 - Active leaf nodes highlight with `--aw-sys-color-text-accent` and a subtle bottom border.
 - `renderItem` callback enables custom leaf rendering (badges, click handlers, inline status).
 
+### Frame — Containment Grammar
+
+AWAR has two containment strategies: **surface-based** (Card) and **line-based** (Frame). Card is an opaque panel — the fill creates the boundary. Frame is a transparent boundary — the border IS the structure, and the parent surface shows through.
+
+Frame's border pattern is tied to the layout direction of its content:
+
+```
+Grid (full box):     ┌─────────────────────────┐
+                     │                          │
+                     │         content           │
+                     │                          │
+                     └─────────────────────────┘
+
+Stack (horiz rails): ┌─────────────────────────┐
+
+                            content
+
+                     └─────────────────────────┘
+
+Inline (vert rails): ┌                          ┐
+                     │                          │
+                     │         content           │
+                     │                          │
+                     └                          ┘
+```
+
+- **`grid`** — All four sides. CSS `border` on all edges. For 2D containment.
+- **`stack`** — Top + bottom lines with corner ticks. Horizontal rails that frame vertical content flow.
+- **`inline`** — Left + right lines with corner ticks. Vertical rails that frame horizontal content flow.
+
+Corner ticks on `stack` and `inline` variants are drawn via `::before`/`::after` pseudo-elements using hard-stop linear gradients — 8px of border color at each end, transparent in between.
+
+**Props:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'grid' \| 'stack' \| 'inline'` | `'grid'` | Border pattern |
+| `accent` | `'default' \| 'brand' \| 'interactive' \| 'error' \| 'success' \| 'warning' \| 'info'` | `'default'` | Border color |
+| `title` | `string` | — | Fieldset-legend-style title on the top border |
+| `label` | `string` | — | Right-aligned annotation on the top border |
+
+**Accent color mapping:**
+
+| Accent | Token |
+|--------|-------|
+| `default` | `--aw-sys-color-border-default` |
+| `brand` | `--aw-sys-color-border-brand` |
+| `interactive` | `--aw-sys-color-border-interactive` |
+| `error` | `--aw-sys-color-feedback-error` |
+| `success` | `--aw-sys-color-feedback-success` |
+| `warning` | `--aw-sys-color-feedback-warning` |
+| `info` | `--aw-sys-color-feedback-info` |
+
+**Component tokens:**
+
+| Token | Default | Purpose |
+|-------|---------|---------|
+| `--aw-frame-border` | `--aw-sys-color-border-default` | Border color (set by accent variant) |
+| `--aw-frame-tick` | `8px` | Corner tick length on `stack`/`inline` variants |
+| `--aw-frame-bg` | `--aw-sys-color-bg-surface` | Title/label background (must match parent surface) |
+
+**Card vs Frame decision rule:** Use Card when content needs a distinct surface (panels, dialogs, data regions). Use Frame when content needs a visible boundary without visual weight (dashboards, form groups, KPI strips, named regions).
+
+### FigletText — ASCII Art Branding
+
+FigletText renders the "AWAR" wordmark as ASCII art with CSS gradient coloring. It ships three built-in figlet fonts and six gradient presets from the AWAR palette.
+
+**Design decisions:**
+- Uses `ui-monospace, monospace` instead of JetBrains Mono — the brand monospace font has non-uniform character widths for Unicode box-drawing/block characters (█╔╗═║ are ~8.625px vs ~8.4px for ASCII at 14px), which breaks alignment. System monospace (Consolas, etc.) renders all characters at uniform width.
+- Gradient is applied via CSS `background-clip: text` with `linear-gradient` set as `backgroundImage` inline. The `background-clip` property must live in the CSS Module (React filters it from inline styles), and `backgroundImage` (not `background`) must be used inline to avoid resetting `background-clip`.
+- Each line is a `<div>` with `white-space: pre` — no span-level coloring needed.
+
+**Props:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `lines` | `string[]` | — | Custom ASCII art lines (overrides built-in font) |
+| `font` | `'ansi-shadow' \| 'bloody' \| 'calvin-s'` | `'ansi-shadow'` | Built-in AWAR figlet font |
+| `fullWordmark` | `boolean` | `false` | Show full "ALGORITHMIC WARFARE" wordmark |
+| `gradient` | `preset \| { from, to }` | `'brand'` | Gradient preset or custom hex pair |
+| `direction` | `'vertical' \| 'horizontal' \| 'diagonal'` | `'vertical'` | Gradient angle |
+| `fontSize` | `number` | — | Font size override in pixels |
+
+**Gradient presets:**
+
+| Preset | From | To |
+|--------|------|-----|
+| `brand` | `#773333` | `#FF9944` |
+| `fire` | `#B85E10` | `#FFC06D` |
+| `blood` | `#1A0C0C` | `#B06666` |
+| `mono` | `#3A3230` | `#958A85` |
+| `ember` | `#421D1D` | `#FFB055` |
+| `solar` | `#FF9944` | `#773333` |
+
 ---
 
 ## Part 7: Implementation Notes for Claude Code
@@ -851,6 +947,7 @@ awar-ui/
 │   │   │   ├── Logo/
 │   │   │   ├── Wordmark/
 │   │   │   ├── LogoLockup/
+│   │   │   ├── FigletText/
 │   │   │   └── logo.svg              # Source SVG (currentColor fill)
 │   │   ├── layout/
 │   │   │   ├── Stack/
@@ -865,6 +962,7 @@ awar-ui/
 │   │   │   └── Divider/
 │   │   ├── containers/
 │   │   │   ├── Card/
+│   │   │   ├── Frame/
 │   │   │   ├── Alert/
 │   │   │   ├── Table/
 │   │   │   ├── ActionBar/

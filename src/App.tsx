@@ -51,6 +51,9 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
 import { AlertCircle, Terminal, ChevronDown } from 'lucide-react'
+import { FigletText } from '@/components/awar/figlet-text'
+import { Logo } from '@/components/awar/logo'
+import { LogoLockup } from '@/components/awar/logo-lockup'
 
 function App() {
   const [mode, setMode] = useState<'dark' | 'light'>('dark')
@@ -74,6 +77,49 @@ function App() {
             v2.0 — shadcn/ui + Tailwind v4 — Component Preview
           </p>
         </header>
+
+        <Separator />
+
+        {/* Branding */}
+        <section className="space-y-6">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Branding
+          </h2>
+
+          {/* FigletText presets */}
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — ansi-shadow</p>
+            <FigletText font="ansi-shadow" />
+          </div>
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — calvin-s (ember gradient, horizontal)</p>
+            <FigletText font="calvin-s" gradient="ember" direction="horizontal" />
+          </div>
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — full wordmark</p>
+            <FigletText font="calvin-s" fullWordmark gradient="fire" fontSize={12} />
+          </div>
+
+          {/* Logo */}
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Logo</p>
+            <div className="flex items-center gap-4">
+              <Logo size={24} className="text-primary" />
+              <Logo size={32} className="text-primary" />
+              <Logo size={48} className="text-primary" />
+              <Logo size={64} className="text-foreground" />
+            </div>
+          </div>
+
+          {/* LogoLockup */}
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">LogoLockup</p>
+            <div className="flex items-center gap-8">
+              <LogoLockup />
+              <LogoLockup subtitle="Algorithmic Warfare" />
+            </div>
+          </div>
+        </section>
 
         <Separator />
 

@@ -54,16 +54,11 @@ import { AlertCircle, Terminal, ChevronDown } from 'lucide-react'
 import { FigletText } from '@/components/awar/figlet-text'
 import { Logo } from '@/components/awar/logo'
 import { LogoLockup } from '@/components/awar/logo-lockup'
+import { useAWARTheme } from '@/provider'
 
 function App() {
-  const [mode, setMode] = useState<'dark' | 'light'>('dark')
+  const { theme, toggleTheme } = useAWARTheme()
   const [progress, setProgress] = useState(42)
-
-  const toggle = () => {
-    const next = mode === 'dark' ? 'light' : 'dark'
-    setMode(next)
-    document.documentElement.classList.toggle('light', next === 'light')
-  }
 
   return (
     <div className="min-h-screen bg-background text-foreground p-8">
@@ -126,8 +121,8 @@ function App() {
         {/* Theme Toggle */}
         <div className="flex items-center gap-4">
           <Label htmlFor="theme" className="text-sm uppercase tracking-wider">Theme</Label>
-          <Switch id="theme" checked={mode === 'light'} onCheckedChange={toggle} />
-          <span className="text-sm text-muted-foreground">{mode}</span>
+          <Switch id="theme" checked={theme === 'light'} onCheckedChange={toggleTheme} />
+          <span className="text-sm text-muted-foreground">{theme}</span>
         </div>
 
         <Separator />

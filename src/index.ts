@@ -10,6 +10,7 @@ export type { AWARProviderProps, Theme, AWARThemeContext } from "./provider"
 
 // ── Utilities ──
 export { cn } from "./lib/utils"
+export { useIsMobile } from "./hooks/use-mobile"
 
 // ── AWAR Branding ──
 export {
@@ -40,9 +41,36 @@ export {
 
 export { Alert, AlertTitle, AlertDescription } from "./components/ui/alert"
 
+export {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "./components/ui/alert-dialog"
+
+export { AspectRatio } from "./components/ui/aspect-ratio"
+
 export { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar"
 
 export { Badge, badgeVariants } from "./components/ui/badge"
+
+export {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "./components/ui/breadcrumb"
 
 export { Button, buttonVariants } from "./components/ui/button"
 
@@ -56,6 +84,12 @@ export {
 } from "./components/ui/card"
 
 export { Checkbox } from "./components/ui/checkbox"
+
+export {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "./components/ui/collapsible"
 
 export {
   Command,
@@ -98,9 +132,27 @@ export {
   DropdownMenuSubContent,
 } from "./components/ui/dropdown-menu"
 
+export {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "./components/ui/hover-card"
+
 export { Input } from "./components/ui/input"
 
 export { Label } from "./components/ui/label"
+
+export {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "./components/ui/navigation-menu"
 
 export {
   Popover,
@@ -113,6 +165,14 @@ export {
 } from "./components/ui/popover"
 
 export { Progress } from "./components/ui/progress"
+
+export { RadioGroup, RadioGroupItem } from "./components/ui/radio-group"
+
+export {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "./components/ui/resizable"
 
 export { ScrollArea, ScrollBar } from "./components/ui/scroll-area"
 
@@ -142,7 +202,38 @@ export {
   SheetDescription,
 } from "./components/ui/sheet"
 
+export {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInput,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSkeleton,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSeparator,
+  SidebarTrigger,
+  useSidebar,
+} from "./components/ui/sidebar"
+
+export { Skeleton } from "./components/ui/skeleton"
+
 export { Slider } from "./components/ui/slider"
+
+export { Toaster } from "./components/ui/sonner"
 
 export { Switch } from "./components/ui/switch"
 
@@ -168,6 +259,8 @@ export {
 export { Textarea } from "./components/ui/textarea"
 
 export { Toggle, toggleVariants } from "./components/ui/toggle"
+
+export { ToggleGroup, ToggleGroupItem } from "./components/ui/toggle-group"
 
 export {
   Tooltip,

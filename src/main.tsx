@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { AWARProvider } from './providers/AWARProvider'
-import App from './showcase/App'
+import '@/styles/globals.css'
+import { AWARProvider } from '@/provider'
+import App from '@/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

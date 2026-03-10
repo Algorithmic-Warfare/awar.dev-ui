@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AWAR Design System — Theme Layer
+ *
+ * Terminal-inspired, monospace-only, zero border-radius, no shadows.
+ * Colors: #773333 (maroon) × #FF9944 (amber) × warm neutrals.
+ *
+ * shadcn CSS variable slots mapped to AWAR palette.
+ * All colors in oklch for perceptual uniformity.
+ */
+
+@theme inline {
+  /* ── Color mappings ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Radius: zero everywhere ── */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --radius-full: 0px;
+
+  /* ── Font: monospace only ── */
+  --font-sans: "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code",
+    "Source Code Pro", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code",
+    "Source Code Pro", ui-monospace, monospace;
+}
+
+/*
+ * ── Dark mode (default / primary) ──
+ *
+ * AWAR palette:
+ *   Maroon-500: #773333    Amber-500: #FF9944
+ *   Warm neutrals tinted toward red-brown (~10° hue)
+ */
+:root {
+  --radius: 0px;
+
+  /* Surfaces — tone-based elevation, no shadows */
+  --background: #0D0B0A;           /* neutral-950 */
+  --foreground: #F0EBE8;           /* neutral-100 */
+  --card: #171312;                 /* neutral-900 */
+  --card-foreground: #F0EBE8;      /* neutral-100 */
+  --popover: #3A3230;              /* neutral-700 */
+  --popover-foreground: #F0EBE8;   /* neutral-100 */
+
+  /* Primary = amber (interactive) */
+  --primary: #FF9944;              /* amber-500 */
+  --primary-foreground: #0D0B0A;   /* neutral-950 */
+
+  /* Secondary = raised surface */
+  --secondary: #252020;            /* neutral-800 */
+  --secondary-foreground: #F0EBE8; /* neutral-100 */
+
+  /* Muted */
+  --muted: #252020;                /* neutral-800 */
+  --muted-foreground: #736661;     /* neutral-500 */
+
+  /* Accent = brand maroon */
+  --accent: #773333;               /* maroon-500 */
+  --accent-foreground: #F0EBE8;    /* neutral-100 */
+
+  /* Destructive */
+  --destructive: #CC3333;          /* red-500 */
+  --destructive-foreground: #F0EBE8;
+
+  /* Borders */
+  --border: #3A3230;               /* neutral-700 */
+  --input: #3A3230;                /* neutral-700 */
+  --ring: #FF9944;                 /* amber-500 */
+
+  /* Charts — AWAR palette spread */
+  --chart-1: #FF9944;              /* amber-500 */
+  --chart-2: #773333;              /* maroon-500 */
+  --chart-3: #33AA55;              /* green-500 */
+  --chart-4: #4488BB;              /* blue-500 */
+  --chart-5: #CCAA00;              /* yellow-500 */
+
+  /* Sidebar */
+  --sidebar: #171312;              /* neutral-900 */
+  --sidebar-foreground: #F0EBE8;   /* neutral-100 */
+  --sidebar-primary: #FF9944;      /* amber-500 */
+  --sidebar-primary-foreground: #0D0B0A;
+  --sidebar-accent: #252020;       /* neutral-800 */
+  --sidebar-accent-foreground: #F0EBE8;
+  --sidebar-border: #3A3230;       /* neutral-700 */
+  --sidebar-ring: #FF9944;         /* amber-500 */
+}
+
+/*
+ * ── Light mode ──
+ */
+.light {
+  --background: #FAF7F5;           /* neutral-50 */
+  --foreground: #171312;           /* neutral-900 */
+  --card: #FFFFFF;                 /* neutral-0 */
+  --card-foreground: #171312;      /* neutral-900 */
+  --popover: #DBD4D0;              /* neutral-200 */
+  --popover-foreground: #171312;   /* neutral-900 */
+
+  --primary: #B85E10;              /* amber-700 */
+  --primary-foreground: #FAF7F5;   /* neutral-50 */
+
+  --secondary: #F0EBE8;           /* neutral-100 */
+  --secondary-foreground: #171312; /* neutral-900 */
+
+  --muted: #F0EBE8;               /* neutral-100 */
+  --muted-foreground: #736661;     /* neutral-500 */
+
+  --accent: #773333;               /* maroon-500 */
+  --accent-foreground: #FFFFFF;    /* neutral-0 */
+
+  --destructive: #CC3333;          /* red-500 */
+  --destructive-foreground: #FFFFFF;
+
+  --border: #DBD4D0;               /* neutral-200 */
+  --input: #DBD4D0;                /* neutral-200 */
+  --ring: #B85E10;                 /* amber-700 */
+
+  --chart-1: #B85E10;              /* amber-700 */
+  --chart-2: #773333;              /* maroon-500 */
+  --chart-3: #33AA55;              /* green-500 */
+  --chart-4: #4488BB;              /* blue-500 */
+  --chart-5: #CCAA00;              /* yellow-500 */
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #171312;
+  --sidebar-primary: #B85E10;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0EBE8;
+  --sidebar-accent-foreground: #171312;
+  --sidebar-border: #DBD4D0;
+  --sidebar-ring: #B85E10;
+}
+
+/* ── Base layer ── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code",
+      "Source Code Pro", ui-monospace, monospace;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* ── Scrollbar styling ── */
+  ::-webkit-scrollbar {
+    width: 1ch;
+    height: 1ch;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+    border-left: 1px solid var(--border);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ring);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--background);
+  }
+
+  /* Firefox scrollbar fallback */
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--background);
+    }
+  }
+
+  /* ── Strip all shadows and border-radius globally ── */
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+}

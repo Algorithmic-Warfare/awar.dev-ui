@@ -1,61 +1,177 @@
-// Provider
-export { AWARProvider } from './providers/AWARProvider'
-export type { AWARProviderProps, ThemeContextValue, Mode } from './providers/AWARProvider'
-export { ThemeContext } from './providers/AWARProvider'
+// AWAR Design System — Public API
+// @awar.dev/ui v2.0
 
-// Tokens
-export { primitives } from './tokens/primitives'
-export { semanticsShared, semanticsDark, semanticsLight } from './tokens/semantics'
+// ── Styles (consumers must import "@awar.dev/ui/styles") ──
+import "./styles/globals.css"
 
-// Hooks
-export { useTheme } from './hooks/useTheme'
-export { useAWARTheme } from './hooks/useAWARTheme'
-export { useShortcut } from './hooks/useShortcut'
+// ── Provider & Theme ──
+export { AWARProvider, useAWARTheme } from "./provider"
+export type { AWARProviderProps, Theme, AWARThemeContext } from "./provider"
 
-// Branding
-export { Logo } from './components/branding/Logo'
-export type { LogoProps, LogoSize, LogoVariant } from './components/branding/Logo'
-export { Wordmark } from './components/branding/Wordmark'
-export type { WordmarkProps, WordmarkSize } from './components/branding/Wordmark'
-export { LogoLockup } from './components/branding/LogoLockup'
-export type { LogoLockupProps, LogoLockupOrientation } from './components/branding/LogoLockup'
-export { FigletText } from './components/branding/FigletText'
-export type { FigletTextProps, FigletGradientPreset, FigletGradientCustom, FigletDirection, FigletFont } from './components/branding/FigletText'
+// ── Utilities ──
+export { cn } from "./lib/utils"
 
-// Layout
-export { Stack } from './components/layout/Stack'
-export { Inline } from './components/layout/Inline'
-export { Grid } from './components/layout/Grid'
+// ── AWAR Branding ──
+export {
+  FigletText,
+  FIGLET_ART,
+  FULL_WORDMARK_ART,
+  GRADIENT_PRESETS,
+} from "./components/awar/figlet-text"
+export type {
+  FigletTextProps,
+  FigletFont,
+  FigletDirection,
+  FigletGradientPreset,
+  FigletGradientCustom,
+} from "./components/awar/figlet-text"
+export { Logo } from "./components/awar/logo"
+export type { LogoProps } from "./components/awar/logo"
+export { LogoLockup } from "./components/awar/logo-lockup"
+export type { LogoLockupProps } from "./components/awar/logo-lockup"
 
-// Primitives
-export { Text } from './components/primitives/Text'
-export { Button } from './components/primitives/Button'
-export type { ButtonProps, ButtonVariant, ButtonSize } from './components/primitives/Button'
-export { Input } from './components/primitives/Input'
-export { Badge } from './components/primitives/Badge'
-export { Divider } from './components/primitives/Divider'
-export { Kbd } from './components/primitives/Kbd'
+// ── shadcn/ui Components ──
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./components/ui/accordion"
 
-// Containers
-export { Card } from './components/containers/Card'
-export type { CardProps, CardVariant, CardHeaderProps, CardBodyProps, CardFooterProps } from './components/containers/Card'
-export { Frame } from './components/containers/Frame'
-export type { FrameProps, FrameVariant, FrameAccent } from './components/containers/Frame'
-export { Alert } from './components/containers/Alert'
-export type { AlertProps, AlertVariant } from './components/containers/Alert'
-export { Table } from './components/containers/Table'
-export type { TableProps, TableHeadProps, TableBodyProps, TableRowProps, TableCellProps } from './components/containers/Table'
-export { ActionBar } from './components/containers/ActionBar'
-export type { ActionBarProps, ActionBarItemProps } from './components/containers/ActionBar'
-export { List } from './components/containers/List'
-export type { ListProps, ListItemProps, ListBullet } from './components/containers/List'
+export { Alert, AlertTitle, AlertDescription } from "./components/ui/alert"
 
-// Overlays
-export { Modal } from './components/overlays/Modal'
-export type { ModalProps, ModalTriggerProps, ModalContentProps, ModalCloseProps } from './components/overlays/Modal'
-export { Dropdown } from './components/overlays/Dropdown'
-export type { DropdownProps, DropdownTriggerProps, DropdownContentProps, DropdownItemProps, DropdownSeparatorProps } from './components/overlays/Dropdown'
-export { Tooltip } from './components/overlays/Tooltip'
-export type { TooltipProps } from './components/overlays/Tooltip'
-export { Popover } from './components/overlays/Popover'
-export type { PopoverProps, PopoverTriggerProps, PopoverContentProps, PopoverCloseProps } from './components/overlays/Popover'
+export { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar"
+
+export { Badge, badgeVariants } from "./components/ui/badge"
+
+export { Button, buttonVariants } from "./components/ui/button"
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./components/ui/card"
+
+export { Checkbox } from "./components/ui/checkbox"
+
+export {
+  Command,
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+  CommandSeparator,
+} from "./components/ui/command"
+
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "./components/ui/dialog"
+
+export {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from "./components/ui/dropdown-menu"
+
+export { Input } from "./components/ui/input"
+
+export { Label } from "./components/ui/label"
+
+export {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverAnchor,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverDescription,
+} from "./components/ui/popover"
+
+export { Progress } from "./components/ui/progress"
+
+export { ScrollArea, ScrollBar } from "./components/ui/scroll-area"
+
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./components/ui/select"
+
+export { Separator } from "./components/ui/separator"
+
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+} from "./components/ui/sheet"
+
+export { Slider } from "./components/ui/slider"
+
+export { Switch } from "./components/ui/switch"
+
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+} from "./components/ui/table"
+
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+  tabsListVariants,
+} from "./components/ui/tabs"
+
+export { Textarea } from "./components/ui/textarea"
+
+export { Toggle, toggleVariants } from "./components/ui/toggle"
+
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "./components/ui/tooltip"

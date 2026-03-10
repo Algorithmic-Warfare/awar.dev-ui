@@ -86,6 +86,94 @@ function App() {
 
         <Separator />
 
+        {/* Spacing & Density */}
+        <section className="space-y-4">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Spacing & Density
+          </h2>
+
+          {/* Component height comparison */}
+          <div className="space-y-3">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Component Heights</p>
+            <div className="flex items-end gap-3">
+              <div className="space-y-1 text-center">
+                <Button size="xs">xs · 20px</Button>
+                <p className="text-[10px] text-muted-foreground">h-5</p>
+              </div>
+              <div className="space-y-1 text-center">
+                <Button size="sm">sm · 24px</Button>
+                <p className="text-[10px] text-muted-foreground">h-6</p>
+              </div>
+              <div className="space-y-1 text-center">
+                <Button>default · 28px</Button>
+                <p className="text-[10px] text-muted-foreground">h-7</p>
+              </div>
+              <div className="space-y-1 text-center">
+                <Button size="lg">lg · 36px</Button>
+                <p className="text-[10px] text-muted-foreground">h-9</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Inline form density */}
+          <div className="space-y-3">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Inline Form Density</p>
+            <div className="flex items-center gap-2 max-w-lg">
+              <Input placeholder="Search..." className="flex-1" />
+              <Select>
+                <SelectTrigger className="w-28">
+                  <SelectValue placeholder="Filter" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="active">Active</SelectItem>
+                  <SelectItem value="archived">Archived</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button>Go</Button>
+            </div>
+          </div>
+
+          {/* Spacing scale */}
+          <div className="space-y-3">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">4px Base Spacing Scale</p>
+            <div className="flex items-end gap-1">
+              {[1, 2, 3, 4, 5, 6, 8, 10, 12, 16].map((n) => (
+                <div key={n} className="flex flex-col items-center gap-1">
+                  <div
+                    className="bg-primary"
+                    style={{ width: `${n * 4}px`, height: `${n * 4}px` }}
+                  />
+                  <span className="text-[10px] text-muted-foreground">{n * 4}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Card density comparison */}
+          <div className="space-y-3">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">Card Padding (16px inset)</p>
+            <div className="flex gap-3">
+              <Card className="flex-1">
+                <CardHeader>
+                  <CardTitle className="text-sm">Compact Card</CardTitle>
+                  <CardDescription>py-4 / px-4 / gap-4</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Content area</p>
+                </CardContent>
+              </Card>
+              <div className="flex-1 border border-dashed border-border p-6">
+                <p className="text-sm font-medium">shadcn Default</p>
+                <p className="text-sm text-muted-foreground mt-2">py-6 / px-6 / gap-6</p>
+                <p className="text-sm text-muted-foreground">for comparison</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Separator />
+
         {/* Buttons */}
         <section className="space-y-4">
           <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">

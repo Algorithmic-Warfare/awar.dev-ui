@@ -49,6 +49,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* ── Radius: zero everywhere ── */
+  --radius-xs: 0px;
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
@@ -56,6 +57,7 @@
   --radius-2xl: 0px;
   --radius-3xl: 0px;
   --radius-4xl: 0px;
+  --radius-full: 0px;
 
   /* ── Font: monospace only ── */
   --font-sans: "JetBrains Mono", "Fira Code", "IBM Plex Mono", "Cascadia Code",
@@ -216,10 +218,11 @@
     }
   }
 
-  /* ── Strip all shadows globally ── */
+  /* ── Strip all shadows and border-radius globally ── */
   *,
   *::before,
   *::after {
     box-shadow: none !important;
+    border-radius: 0 !important;
   }
 }

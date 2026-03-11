@@ -1,3 +1,12 @@
+## [2.1.1] - 2026-03-11
+
+### 🚀 Features
+
+- Add passive AWAR UI marketplace skill
+
+### 📚 Documentation
+
+- Rewrite README with v2 component list and screenshots
 ## [2.1.0] - 2026-03-11
 
 ### 🚀 Features
@@ -43,6 +52,7 @@
 - Add MIT license
 - Add typecheck script, pre-push hook, and publish guard
 - Add automated npm publish workflow on version tags
+- *(release)* 2.1.0
 ## [1.0.0] - 2026-02-19
 
 ### 🚀 Features

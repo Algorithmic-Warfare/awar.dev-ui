@@ -1,8 +1,10 @@
-# AWAR
+# @awar.dev/ui
 
-**Terminal-inspired React component library. Monospace everything. Zero border-radius. No shadows.**
+**Terminal-inspired React component library built on shadcn/ui + Tailwind v4. Monospace everything. Zero border-radius. No shadows.**
 
-![AWAR Token Gallery](docs/screenshots/screenshot-tokens.png)
+![AWAR Design System — Dark Mode](docs/screenshots/hero-dark.png)
+
+![Component Explorer — Buttons](docs/screenshots/explorer-buttons.png)
 
 ## Design Principles
 
@@ -10,29 +12,23 @@
 |-----------|--------|
 | Typography | Monospace-only (JetBrains Mono) |
 | Shape | Zero border-radius everywhere |
-| Elevation | Tone-based — no `box-shadow` |
-| Palette | Warm CRT: maroon `#773333` x amber `#FF9944` |
+| Elevation | Tone-based surface shifts — no `box-shadow` |
+| Density | Compact `h-7` (28px) default, 4px spacing scale |
+| Palette | Warm CRT: maroon `#773333` x amber `#FF9944` x warm neutrals |
 | Modes | Dark-first, light mode supported |
-| Accents | CJK design characters 「」。 for decorative punctuation |
 
 ---
 
 ## Installation
 
-Not yet published to npm. Install directly from GitHub:
-
 ```bash
-npm install github:Algorithmic-Warfare/awar.dev-ui
+npm install @awar.dev/ui
 ```
 
 ### Peer Dependencies
 
 ```bash
-npm install react react-dom \
-  @radix-ui/react-dialog \
-  @radix-ui/react-dropdown-menu \
-  @radix-ui/react-tooltip \
-  @radix-ui/react-popover
+npm install react react-dom
 ```
 
 Works with React 18 and 19.
@@ -42,14 +38,14 @@ Works with React 18 and 19.
 ## Quick Start
 
 ```tsx
-import { AWARProvider, Button, Text } from '@awar.dev/ui'
+import { AWARProvider, Button, Input } from '@awar.dev/ui'
 import '@awar.dev/ui/styles'
 
 function App() {
   return (
-    <AWARProvider defaultMode="dark">
-      <Text role="heading">Hello, operator.</Text>
-      <Button variant="primary">Execute</Button>
+    <AWARProvider defaultTheme="dark">
+      <Button>Execute</Button>
+      <Input placeholder="Enter command..." />
     </AWARProvider>
   )
 }
@@ -59,116 +55,143 @@ function App() {
 
 ## Components
 
-![Component showcase — Button page with sidebar navigation](docs/screenshots/screenshot-components.png)
+### Component Explorer
 
-### Primitives
-
-| Component | Key Props |
-|-----------|-----------|
-| `Button` | `variant`: `primary` · `secondary` · `danger` · `ghost` / `size`: `compact` · `default` · `comfortable` · `large` |
-| `Text` | `role`: `display` · `heading` · `subheading` · `body` · `label` · `caption` / `color`: `primary` · `secondary` · `brand` · `accent` ... |
-| `Input` | `label` · `error` · `prefix` — extends native `<input>` |
-| `Badge` | `variant`: `default` · `success` · `warning` · `error` · `info` · `brand` |
-| `Divider` | `variant`: `thin` · `thick` |
-| `Kbd` | `combo` (e.g. `"ctrl+s"`) · `platform`: `mac` · `win` · `auto` |
-
-### Layout
-
-| Component | Key Props |
-|-----------|-----------|
-| `Stack` | `gap`: `xs` · `sm` · `md` · `lg` · `xl` / `as` |
-| `Inline` | `gap` · `wrap` · `align`: `start` · `center` · `end` · `baseline` / `as` |
-| `Grid` | `columns` (number or CSS string) · `gap` / `as` |
-
-### Containers
-
-![Card component — default and filled variants](docs/screenshots/screenshot-card.png)
-
-| Component | Key Props |
-|-----------|-----------|
-| `Card` | `variant`: `default` · `filled` — sub-components: `Card.Header`, `Card.Body`, `Card.Footer` |
-| `Alert` | `variant`: `error` · `warning` · `success` · `info` |
-| `Table` | Sub-components: `Table.Head`, `Table.Body`, `Table.Row`, `Table.Cell` (`header` prop) |
-| `ActionBar` | Sub-component: `ActionBar.Item` (`disabled` prop) |
-| `List` | `bullet`: `none` · `dash` · `arrow` · `dot` — sub-component: `List.Item` |
-
-### Overlays
-
-Built on [Radix UI](https://www.radix-ui.com/) for accessibility and keyboard navigation.
-
-| Component | Key Props |
-|-----------|-----------|
-| `Modal` | `open` · `onOpenChange` — sub-components: `Modal.Trigger`, `Modal.Content` (`title`, `description`), `Modal.Close` |
-| `Dropdown` | Sub-components: `Dropdown.Trigger`, `Dropdown.Content` (`align`), `Dropdown.Item` (`onSelect`), `Dropdown.Separator` |
-| `Tooltip` | `content` · `side` · `sideOffset` · `delayDuration` |
-| `Popover` | `open` · `onOpenChange` — sub-components: `Popover.Trigger`, `Popover.Content` (`align`, `side`), `Popover.Close` |
-
-### Navigation
-
-| Component | Key Props |
-|-----------|-----------|
-| `TreeView` | `nodes`: `TreeNode[]` · `activeKey` · `defaultCollapsed` · `renderItem` — recursive collapsible tree with indentation-only hierarchy |
-
-### Branding
-
-| Component | Key Props |
-|-----------|-----------|
-| `Logo` | `size`: `xs`–`2xl` / `variant`: `default` · `brand` · `accent` · `mono` · `inverse` |
-| `Wordmark` | `size`: `xs`–`2xl` / `subtitle` |
-| `LogoLockup` | `orientation`: `horizontal` · `stacked` / `size` · `variant` · `subtitle` |
-
----
-
-## Hooks
-
-**`useAWARTheme()`** — Access theme context inside `AWARProvider`. Returns `{ mode, toggle, setMode }`. Throws if used outside the provider.
-
-**`useTheme()`** — Standalone theme management, no provider needed. Same return shape. Reads from `localStorage` / `data-mode` attribute.
-
-**`useShortcut(combo, callback, options)`** — Register keyboard shortcuts scoped to a component subtree or globally.
-
-```tsx
-const ref = useShortcut('ctrl+s', (e) => save(), { global: false })
-return <div ref={ref}>...</div>
-```
-
-Options: `global` (default `false`), `enabled` (default `true`), `preventDefault` (default `true`).
-
----
-
-## Token Architecture
-
-Three-layer CSS custom property system:
-
-```
-Primitives  --aw-ref-*    Raw values (colors, sizes, weights)
-     ↓
-Semantics   --aw-sys-*    Meaningful names (bg.surface, text.primary)
-     ↓
-Mode overrides             Color remapping via [data-mode="dark"|"light"]
-```
-
-90 primitives, 69 shared semantics, 31 dark + 31 light mode tokens.
-
-Tokens are authored in TypeScript and compiled to CSS:
-
-```bash
-npm run generate:tokens
-```
-
----
-
-## Showcase
-
-The repo includes an interactive showcase app for browsing all components and tokens.
+The repo includes an interactive showcase app with 40+ demo pages.
 
 ```bash
 npm run dev
 ```
 
-This starts a Vite dev server at `localhost:5173` with:
-- **Components tab** — browse every component with live examples, prop tables, and usage snippets
-- **Tokens tab** — visual gallery of color palettes, typography scale, spacing, and elevation tokens
+![Command Palette](docs/screenshots/explorer-command.png)
+
+### Inputs
+
+| Component | Description |
+|-----------|-------------|
+| `Button` | 6 variants (primary, secondary, destructive, outline, ghost, link) x 4 sizes |
+| `Input` | Text, password, number, search with styled native controls |
+| `NumberInput` | `[-] VALUE [+]` stepper with `unit` prop (SUI, $, %, ETH) |
+| `Textarea` | Auto-height text area |
+| `Select` | Single-value dropdown |
+| `Checkbox` | Square checkbox (no rounded corners) |
+| `RadioGroup` | Square radio indicators |
+| `Switch` | Toggle switch |
+| `Slider` | Range slider with amber thumb |
+| `Toggle` / `ToggleGroup` | Pressable toggle buttons |
+| `Calendar` | Date picker (single, range, popover) |
+| `InputOTP` | One-time password verification input |
+| `Form` | react-hook-form + zod validation integration |
+
+### Display
+
+![Cards and Stat Cards](docs/screenshots/explorer-cards.png)
+
+| Component | Description |
+|-----------|-------------|
+| `Card` | Container with Header, Content, Footer sub-components |
+| `Table` | Sortable columns with `TableSortHead`, auto-detect numeric sort |
+| `Badge` | Status labels (default, secondary, destructive, outline) |
+| `Avatar` | User avatar with image and fallback |
+| `Separator` | Horizontal/vertical divider |
+| `Skeleton` | Loading placeholder |
+| `AspectRatio` | Constrained aspect ratio container |
+
+### Feedback
+
+| Component | Description |
+|-----------|-------------|
+| `Alert` | Informational banner with icon |
+| `Progress` | Determinate progress bar |
+| `Sonner` | Toast notifications |
+
+### Overlays
+
+![Dialog with Form](docs/screenshots/explorer-dialog.png)
+
+| Component | Description |
+|-----------|-------------|
+| `Dialog` | Modal dialog with header, content, footer |
+| `AlertDialog` | Confirmation dialog with cancel/action |
+| `DropdownMenu` | Context menu with groups, separators, shortcuts |
+| `HoverCard` | Preview card on hover |
+| `Popover` | Anchored overlay panel |
+| `Sheet` | Slide-in panel (top, right, bottom, left) |
+| `Tooltip` | Hover tooltip |
+
+### Navigation
+
+| Component | Description |
+|-----------|-------------|
+| `Breadcrumb` | Path-based navigation with ellipsis overflow |
+| `NavigationMenu` | Horizontal nav with mega-menu content |
+| `Tabs` | Tab panels with underline and pill variants |
+
+### Layout
+
+| Component | Description |
+|-----------|-------------|
+| `Accordion` | Collapsible content sections |
+| `Collapsible` | Single expandable region |
+| `Resizable` | Draggable panel splitter |
+| `ScrollArea` | Custom scrollbar container |
+| `Command` | Command palette (cmdk) |
+
+### Visualization
+
+| Component | Description |
+|-----------|-------------|
+| `GraphCanvas` | React Flow wrapper with AWAR theme (pan/zoom/select) |
+| `GraphEdge` | Custom bezier edge with configurable stroke/dash |
+| `GraphLegend` | Legend overlay for graph node/edge types |
+| `ChartContainer` | Recharts wrapper with AWAR color integration |
+
+### Branding
+
+![FigletText, Logo, LogoLockup](docs/screenshots/branding.png)
+
+| Component | Description |
+|-----------|-------------|
+| `FigletText` | ASCII art text with gradient support (ANSI Shadow, Calvin S) |
+| `Logo` | Monogram mark at multiple sizes |
+| `LogoLockup` | Logo + wordmark (horizontal, stacked) |
+
+---
+
+## Theme
+
+![Palette — Light Mode](docs/screenshots/palette-light.png)
+
+Dark mode is the default. Light mode activates via the `.light` class on `<html>`.
+
+```tsx
+import { useAWARTheme } from '@awar.dev/ui'
+
+function ThemeToggle() {
+  const { theme, toggleTheme } = useAWARTheme()
+  return <button onClick={toggleTheme}>{theme}</button>
+}
+```
+
+### Surface Elevation
+
+No shadows. Depth is expressed through background tone:
+
+```
+background → card → secondary → popover
+(darkest)                      (lightest)
+```
+
+### Palette
+
+| Token | Dark | Light | Role |
+|-------|------|-------|------|
+| `--background` | `#0D0B0A` | `#FAF7F5` | Root surface |
+| `--card` | `#171312` | `#FFFFFF` | Card surface |
+| `--primary` | `#FF9944` | `#B85E10` | Interactive / amber |
+| `--accent` | `#773333` | `#773333` | Brand / maroon |
+| `--destructive` | `#CC3333` | `#CC3333` | Error / red |
+| `--border` | `#3A3230` | `#DBD4D0` | Borders |
 
 ---
 
@@ -177,34 +200,30 @@ This starts a Vite dev server at `localhost:5173` with:
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start showcase dev server |
-| `npm run build:lib` | Build library for distribution (`dist/`) |
-| `npm run generate:tokens` | Regenerate `tokens.css` from TypeScript sources |
+| `npm run build:lib` | Build library (`dist/index.js` + `dist/index.css`) |
+| `npm run typecheck` | TypeScript check (`tsc -b`) |
 
 ### Project Structure
 
 ```
 src/
   components/
-    branding/        Logo, Wordmark, LogoLockup
-    layout/          Stack, Inline, Grid
-    primitives/      Button, Text, Input, Badge, Divider, Kbd
-    containers/      Card, Alert, Table, ActionBar, List
-    overlays/        Modal, Dropdown, Tooltip, Popover
-    navigation/      TreeView
-  providers/         AWARProvider
-  hooks/             useTheme, useAWARTheme, useShortcut
-  tokens/            primitives.ts, semantics.ts, generate-css.ts
-  showcase/          Interactive component browser
+    awar/              AWAR-specific (FigletText, Logo, Graph)
+    ui/                shadcn/ui components (customized)
+  app/                 Dev showcase (not shipped)
+  provider.tsx         AWARProvider + useAWARTheme
+  index.ts             Library public API
+  styles/globals.css   Theme layer + global overrides
 ```
 
 ---
 
 ## Tech Stack
 
-React 18/19 · TypeScript · Vite · CSS Modules · Radix UI
+React 19 · TypeScript · Vite · Tailwind CSS v4 · Radix UI · Recharts · React Flow
 
 ---
 
 ## License
 
-Private. Copyright Algorithmic Warfare.
+MIT. Copyright Algorithmic Warfare.

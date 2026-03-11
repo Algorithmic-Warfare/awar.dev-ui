@@ -1,519 +1,100 @@
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Separator } from '@/components/ui/separator'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { Switch } from '@/components/ui/switch'
-import { Slider } from '@/components/ui/slider'
-import { Progress } from '@/components/ui/progress'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Textarea } from '@/components/ui/textarea'
+import { Sidebar } from '@/app/Sidebar'
 import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from '@/components/ui/select'
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from '@/components/ui/accordion'
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableHead,
-  TableCell,
-} from '@/components/ui/table'
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-  DialogClose,
-} from '@/components/ui/dialog'
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu'
-import { AlertCircle, Terminal, ChevronDown } from 'lucide-react'
-import { FigletText } from '@/components/awar/figlet-text'
-import { Logo } from '@/components/awar/logo'
-import { LogoLockup } from '@/components/awar/logo-lockup'
-import { useAWARTheme } from '@/provider'
+  BrandingPage,
+  ButtonPage,
+  CheckboxPage,
+  InputPage,
+  LabelPage,
+  RadioGroupPage,
+  SelectPage,
+  SliderPage,
+  SwitchPage,
+  TextareaPage,
+  TogglePage,
+  ToggleGroupPage,
+  AvatarPage,
+  BadgePage,
+  CardPage,
+  SeparatorPage,
+  SkeletonPage,
+  TablePage,
+  AspectRatioPage,
+  AlertPage,
+  ProgressPage,
+  AlertDialogPage,
+  DialogPage,
+  DropdownMenuPage,
+  HoverCardPage,
+  PopoverPage,
+  SheetPage,
+  TooltipPage,
+  BreadcrumbPage,
+  NavigationMenuPage,
+  TabsPage,
+  AccordionPage,
+  CollapsiblePage,
+  ResizablePage,
+  ScrollAreaPage,
+  CommandPage,
+  SonnerPage,
+  PalettePage,
+} from '@/app/pages'
+import { Toaster } from '@/components/ui/sonner'
+
+const PAGE_MAP: Record<string, React.ReactNode> = {
+  branding: <BrandingPage />,
+  button: <ButtonPage />,
+  checkbox: <CheckboxPage />,
+  input: <InputPage />,
+  label: <LabelPage />,
+  'radio-group': <RadioGroupPage />,
+  select: <SelectPage />,
+  slider: <SliderPage />,
+  switch: <SwitchPage />,
+  textarea: <TextareaPage />,
+  toggle: <TogglePage />,
+  'toggle-group': <ToggleGroupPage />,
+  avatar: <AvatarPage />,
+  badge: <BadgePage />,
+  card: <CardPage />,
+  separator: <SeparatorPage />,
+  skeleton: <SkeletonPage />,
+  table: <TablePage />,
+  'aspect-ratio': <AspectRatioPage />,
+  alert: <AlertPage />,
+  progress: <ProgressPage />,
+  'alert-dialog': <AlertDialogPage />,
+  dialog: <DialogPage />,
+  'dropdown-menu': <DropdownMenuPage />,
+  'hover-card': <HoverCardPage />,
+  popover: <PopoverPage />,
+  sheet: <SheetPage />,
+  tooltip: <TooltipPage />,
+  breadcrumb: <BreadcrumbPage />,
+  'navigation-menu': <NavigationMenuPage />,
+  tabs: <TabsPage />,
+  accordion: <AccordionPage />,
+  collapsible: <CollapsiblePage />,
+  resizable: <ResizablePage />,
+  'scroll-area': <ScrollAreaPage />,
+  command: <CommandPage />,
+  sonner: <SonnerPage />,
+  palette: <PalettePage />,
+}
 
 function App() {
-  const { theme, toggleTheme } = useAWARTheme()
-  const [progress, setProgress] = useState(42)
+  const [active, setActive] = useState('branding')
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-8">
-      <div className="max-w-3xl mx-auto space-y-8">
-        {/* Header */}
-        <header className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-wide uppercase">
-            AWAR Design System
-          </h1>
-          <p className="text-muted-foreground text-sm">
-            v2.0 — shadcn/ui + Tailwind v4 — Component Preview
-          </p>
-        </header>
-
-        <Separator />
-
-        {/* Branding */}
-        <section className="space-y-6">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Branding
-          </h2>
-
-          {/* FigletText presets */}
-          <div className="space-y-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — ansi-shadow</p>
-            <FigletText font="ansi-shadow" />
-          </div>
-          <div className="space-y-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — calvin-s (ember gradient, horizontal)</p>
-            <FigletText font="calvin-s" gradient="ember" direction="horizontal" />
-          </div>
-          <div className="space-y-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">FigletText — full wordmark</p>
-            <FigletText font="calvin-s" fullWordmark gradient="fire" fontSize={12} />
-          </div>
-
-          {/* Logo */}
-          <div className="space-y-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Logo</p>
-            <div className="flex items-center gap-4">
-              <Logo size={24} className="text-primary" />
-              <Logo size={32} className="text-primary" />
-              <Logo size={48} className="text-primary" />
-              <Logo size={64} className="text-foreground" />
-            </div>
-          </div>
-
-          {/* LogoLockup */}
-          <div className="space-y-4">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">LogoLockup</p>
-            <div className="flex items-center gap-8">
-              <LogoLockup />
-              <LogoLockup subtitle="Algorithmic Warfare" />
-            </div>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Theme Toggle */}
-        <div className="flex items-center gap-4">
-          <Label htmlFor="theme" className="text-sm uppercase tracking-wider">Theme</Label>
-          <Switch id="theme" checked={theme === 'light'} onCheckedChange={toggleTheme} />
-          <span className="text-sm text-muted-foreground">{theme}</span>
+    <div className="flex h-screen overflow-hidden bg-background text-foreground">
+      <Sidebar active={active} onSelect={setActive} />
+      <main className="flex-1 overflow-y-auto">
+        <div className="mx-auto max-w-3xl px-8 py-10">
+          {PAGE_MAP[active]}
         </div>
-
-        <Separator />
-
-        {/* Spacing & Density */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Spacing & Density
-          </h2>
-
-          {/* Component height comparison */}
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Component Heights</p>
-            <div className="flex items-end gap-3">
-              <div className="space-y-1 text-center">
-                <Button size="xs">xs · 20px</Button>
-                <p className="text-[10px] text-muted-foreground">h-5</p>
-              </div>
-              <div className="space-y-1 text-center">
-                <Button size="sm">sm · 24px</Button>
-                <p className="text-[10px] text-muted-foreground">h-6</p>
-              </div>
-              <div className="space-y-1 text-center">
-                <Button>default · 28px</Button>
-                <p className="text-[10px] text-muted-foreground">h-7</p>
-              </div>
-              <div className="space-y-1 text-center">
-                <Button size="lg">lg · 36px</Button>
-                <p className="text-[10px] text-muted-foreground">h-9</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Inline form density */}
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Inline Form Density</p>
-            <div className="flex items-center gap-2 max-w-lg">
-              <Input placeholder="Search..." className="flex-1" />
-              <Select>
-                <SelectTrigger className="w-28">
-                  <SelectValue placeholder="Filter" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="archived">Archived</SelectItem>
-                </SelectContent>
-              </Select>
-              <Button>Go</Button>
-            </div>
-          </div>
-
-          {/* Spacing scale */}
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">4px Base Spacing Scale</p>
-            <div className="flex items-end gap-1">
-              {[1, 2, 3, 4, 5, 6, 8, 10, 12, 16].map((n) => (
-                <div key={n} className="flex flex-col items-center gap-1">
-                  <div
-                    className="bg-primary"
-                    style={{ width: `${n * 4}px`, height: `${n * 4}px` }}
-                  />
-                  <span className="text-[10px] text-muted-foreground">{n * 4}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Card density comparison */}
-          <div className="space-y-3">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider">Card Padding (16px inset)</p>
-            <div className="flex gap-3">
-              <Card className="flex-1">
-                <CardHeader>
-                  <CardTitle className="text-sm">Compact Card</CardTitle>
-                  <CardDescription>py-4 / px-4 / gap-4</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Content area</p>
-                </CardContent>
-              </Card>
-              <div className="flex-1 border border-dashed border-border p-6">
-                <p className="text-sm font-medium">shadcn Default</p>
-                <p className="text-sm text-muted-foreground mt-2">py-6 / px-6 / gap-6</p>
-                <p className="text-sm text-muted-foreground">for comparison</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Buttons */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Buttons
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Button>Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="destructive">Destructive</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="link">Link</Button>
-            <Button disabled>Disabled</Button>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Badges */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Badges
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Badge>Default</Badge>
-            <Badge variant="secondary">Secondary</Badge>
-            <Badge variant="destructive">Destructive</Badge>
-            <Badge variant="outline">Outline</Badge>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Cards */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Card
-          </h2>
-          <Card>
-            <CardHeader>
-              <CardTitle>System Status</CardTitle>
-              <CardDescription>All subsystems operational</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span>CPU Load</span>
-                  <span className="text-primary">{progress}%</span>
-                </div>
-                <Progress value={progress} />
-                <Slider
-                  value={[progress]}
-                  onValueChange={(v) => setProgress(v[0] ?? 42)}
-                  max={100}
-                  step={1}
-                  className="mt-2"
-                />
-              </div>
-            </CardContent>
-            <CardFooter className="text-xs text-muted-foreground">
-              Last updated: 2026-03-10T05:00:00Z
-            </CardFooter>
-          </Card>
-        </section>
-
-        <Separator />
-
-        {/* Alerts */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Alerts
-          </h2>
-          <Alert>
-            <Terminal className="h-4 w-4" />
-            <AlertTitle>Terminal</AlertTitle>
-            <AlertDescription>Default alert with neutral styling.</AlertDescription>
-          </Alert>
-          <Alert variant="destructive">
-            <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>Destructive alert for critical issues.</AlertDescription>
-          </Alert>
-        </section>
-
-        <Separator />
-
-        {/* Form Inputs */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Forms
-          </h2>
-          <div className="grid gap-4 max-w-sm">
-            <div className="space-y-2">
-              <Label htmlFor="callsign">Callsign</Label>
-              <Input id="callsign" placeholder="Enter callsign..." />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="notes">Notes</Label>
-              <Textarea id="notes" placeholder="Mission notes..." />
-            </div>
-            <div className="space-y-2">
-              <Label>Priority</Label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select priority" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="critical">Critical</SelectItem>
-                  <SelectItem value="high">High</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="low">Low</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="flex items-center gap-2">
-              <Checkbox id="confirm" />
-              <Label htmlFor="confirm" className="text-sm">Confirm operation</Label>
-            </div>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Tabs */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Tabs
-          </h2>
-          <Tabs defaultValue="overview">
-            <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="logs">Logs</TabsTrigger>
-              <TabsTrigger value="config">Config</TabsTrigger>
-            </TabsList>
-            <TabsContent value="overview" className="p-4 border border-border">
-              <p className="text-sm">System overview panel content.</p>
-            </TabsContent>
-            <TabsContent value="logs" className="p-4 border border-border">
-              <p className="text-sm text-muted-foreground">[2026-03-10 05:00:00] System initialized</p>
-            </TabsContent>
-            <TabsContent value="config" className="p-4 border border-border">
-              <p className="text-sm text-muted-foreground">Configuration settings here.</p>
-            </TabsContent>
-          </Tabs>
-        </section>
-
-        <Separator />
-
-        {/* Accordion */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Accordion
-          </h2>
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Network Configuration</AccordionTrigger>
-              <AccordionContent>
-                <p className="text-sm text-muted-foreground">Primary: 10.0.0.1/24 — Gateway: 10.0.0.254</p>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Security Policies</AccordionTrigger>
-              <AccordionContent>
-                <p className="text-sm text-muted-foreground">Firewall: active — IDS: monitoring — Encryption: AES-256</p>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </section>
-
-        <Separator />
-
-        {/* Table */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Table
-          </h2>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Callsign</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Sector</TableHead>
-                <TableHead className="text-right">Uptime</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">ALPHA-1</TableCell>
-                <TableCell><Badge>Online</Badge></TableCell>
-                <TableCell>North</TableCell>
-                <TableCell className="text-right">99.7%</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">BRAVO-2</TableCell>
-                <TableCell><Badge variant="destructive">Offline</Badge></TableCell>
-                <TableCell>East</TableCell>
-                <TableCell className="text-right">43.2%</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">CHARLIE-3</TableCell>
-                <TableCell><Badge variant="secondary">Standby</Badge></TableCell>
-                <TableCell>West</TableCell>
-                <TableCell className="text-right">87.1%</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </section>
-
-        <Separator />
-
-        {/* Overlays */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Overlays
-          </h2>
-          <div className="flex gap-3">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline">Open Dialog</Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Confirm Operation</DialogTitle>
-                  <DialogDescription>
-                    This action cannot be undone. Proceed with caution.
-                  </DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </DialogClose>
-                  <DialogClose asChild>
-                    <Button>Confirm</Button>
-                  </DialogClose>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline">
-                  Actions <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Deploy</DropdownMenuItem>
-                <DropdownMenuItem>Monitor</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-destructive">Shutdown</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Palette */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Palette
-          </h2>
-          <div className="flex gap-2">
-            <div className="w-12 h-12 bg-primary border border-border" title="primary" />
-            <div className="w-12 h-12 bg-accent border border-border" title="accent" />
-            <div className="w-12 h-12 bg-secondary border border-border" title="secondary" />
-            <div className="w-12 h-12 bg-muted border border-border" title="muted" />
-            <div className="w-12 h-12 bg-destructive border border-border" title="destructive" />
-            <div className="w-12 h-12 bg-card border border-border" title="card" />
-            <div className="w-12 h-12 bg-popover border border-border" title="popover" />
-          </div>
-        </section>
-
-        <Separator />
-
-        {/* Surfaces */}
-        <section className="space-y-4">
-          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Surfaces (tone-based elevation)
-          </h2>
-          <div className="flex gap-4">
-            <div className="bg-background border border-border p-4 flex-1">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Root</p>
-            </div>
-            <div className="bg-card border border-border p-4 flex-1">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Card</p>
-            </div>
-            <div className="bg-secondary border border-border p-4 flex-1">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Raised</p>
-            </div>
-            <div className="bg-popover border border-border p-4 flex-1">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Overlay</p>
-            </div>
-          </div>
-        </section>
-
-        <footer className="text-xs text-muted-foreground uppercase tracking-wider pt-4 border-t border-border">
-          AWAR — Algorithmic Warfare
-        </footer>
-      </div>
+      </main>
+      <Toaster />
     </div>
   )
 }

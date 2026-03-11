@@ -31,6 +31,32 @@ export type { LogoProps } from "./components/awar/logo"
 export { LogoLockup } from "./components/awar/logo-lockup"
 export type { LogoLockupProps } from "./components/awar/logo-lockup"
 
+// ── AWAR Graph ──
+export {
+  GraphCanvas,
+  GraphEdge,
+  GraphLegend,
+} from "./components/awar/graph"
+export type {
+  GraphCanvasProps,
+  GraphEdgeData,
+  GraphLegendItem,
+  GraphLegendProps,
+} from "./components/awar/graph"
+// Re-export React Flow utilities for consumers
+export {
+  Handle,
+  Position,
+  useNodesState,
+  useEdgesState,
+  type Node,
+  type Edge,
+  type NodeProps,
+  type EdgeProps,
+  type NodeTypes,
+  type EdgeTypes,
+} from "@xyflow/react"
+
 // ── shadcn/ui Components ──
 export {
   Accordion,
@@ -74,6 +100,8 @@ export {
 
 export { Button, buttonVariants } from "./components/ui/button"
 
+export { Calendar, CalendarDayButton } from "./components/ui/calendar"
+
 export {
   Card,
   CardHeader,
@@ -83,7 +111,35 @@ export {
   CardContent,
 } from "./components/ui/card"
 
+export {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+} from "./components/ui/chart"
+export type { ChartConfig } from "./components/ui/chart"
+
 export { Checkbox } from "./components/ui/checkbox"
+
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+} from "./components/ui/form"
+
+export {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "./components/ui/input-otp"
 
 export {
   Collapsible,
@@ -139,6 +195,9 @@ export {
 } from "./components/ui/hover-card"
 
 export { Input } from "./components/ui/input"
+
+export { NumberInput } from "./components/ui/number-input"
+export type { NumberInputProps } from "./components/ui/number-input"
 
 export { Label } from "./components/ui/label"
 
@@ -243,10 +302,14 @@ export {
   TableBody,
   TableFooter,
   TableHead,
+  TableSortHead,
   TableRow,
   TableCell,
   TableCaption,
+  toggleSort,
+  sortRows,
 } from "./components/ui/table"
+export type { SortDirection, SortState } from "./components/ui/table"
 
 export {
   Tabs,

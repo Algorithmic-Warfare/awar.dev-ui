@@ -23,6 +23,9 @@ const NAV_SECTIONS = [
       { id: 'textarea', label: 'Textarea' },
       { id: 'toggle', label: 'Toggle' },
       { id: 'toggle-group', label: 'Toggle Group' },
+      { id: 'calendar', label: 'Calendar' },
+      { id: 'input-otp', label: 'Input OTP' },
+      { id: 'form', label: 'Form' },
     ],
   },
   {
@@ -73,6 +76,13 @@ const NAV_SECTIONS = [
       { id: 'resizable', label: 'Resizable' },
       { id: 'scroll-area', label: 'Scroll Area' },
       { id: 'command', label: 'Command' },
+    ],
+  },
+  {
+    label: 'Visualization',
+    items: [
+      { id: 'graph', label: 'Graph' },
+      { id: 'chart', label: 'Chart' },
     ],
   },
   {

@@ -39,6 +39,11 @@ import {
   CommandPage,
   SonnerPage,
   PalettePage,
+  GraphPage,
+  ChartPage,
+  CalendarPage,
+  FormPage,
+  InputOTPPage,
 } from '@/app/pages'
 import { Toaster } from '@/components/ui/sonner'
 
@@ -81,6 +86,11 @@ const PAGE_MAP: Record<string, React.ReactNode> = {
   command: <CommandPage />,
   sonner: <SonnerPage />,
   palette: <PalettePage />,
+  graph: <GraphPage />,
+  chart: <ChartPage />,
+  calendar: <CalendarPage />,
+  form: <FormPage />,
+  'input-otp': <InputOTPPage />,
 }
 
 function App() {
